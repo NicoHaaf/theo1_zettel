@@ -109,7 +109,7 @@ Wird im Folgenden durch Substitution integriert, so wird stets und lediglich die
 			\]
 			Weiteres integrieren liefert:
 			\[
-				x(t) = x_{0} + \int_{t_{0}}^{t} v(t') \dd t' = x_{0} + \int_{0}^{t} \frac{a_{0}}{\omega} \sin(\omega t') \dd t' = x - \left[ \frac{a_{0}}{\omega^{2}} \cos(\omega t') \right]_{0}^{t} = x_{0} - \frac{a_{0}}{\omega^{2}} \cos(\omega t) + \frac{a_{0}}{\omega^{2}}.
+				x(t) = x_{0} + \int_{t_{0}}^{t} v(t') \dd t' = x_{0} + \int_{0}^{t} \frac{a_{0}}{\omega} \sin(\omega t') \dd t' = x_{1} - \left[ \frac{a_{0}}{\omega^{2}} \cos(\omega t') \right]_{0}^{t} = x_{0} - \frac{a_{0}}{\omega^{2}} \cos(\omega t) + \frac{a_{0}}{\omega^{2}}.
 			\]
 	
 	\item 	Wir rechnen aus:
@@ -185,10 +185,10 @@ Sei $V$ die Menge alle reellwertigen Funktionen $f \colon \R \to \R, x \mapsto f
 				
 				\item 	$\alpha \in \R$, $f \in S$, dann auch $\alpha f \in S$, denn:
 						\[
-							(\alpha f)(x) = \alpha f(x) = \alpha f(-x) = (\alpha f)(x).
+							(\alpha f)(x) = \alpha f(x) = \alpha f(-x) = (\alpha f)(-x).
 						\]
 			\end{itemize}
-			Die Menge der monoton steigenden Funktionen $W \subset V$ ist kein Vektorraum mit der Struktur von $V$, denn: es ist $f \in W$ wobei $f(x) = x$, den für $x \in \R$ gilt für alle $y > x$ sicherlich auch $f(y) = y \geq x = f(x)$. Jedoch ist $-f \notin W$, denn: $(-f)(y) = -y < -x = (-f)(x)$, also ist $-f$ streng monoton fallend auf ganz $\R$. Somit ist $\cdot $nicht wohldefiniert auf $W$, $W$ also sicher kein Vektorraum mit $+$ und $\cdot $ wie oben.
+			Die Menge der monoton steigenden Funktionen $W \subset V$ ist kein Vektorraum mit der Struktur von $V$, denn: es ist $f \in W$ wobei $f(x) = x$, den für $x \in \R$ gilt für alle $y > x$ sicherlich auch $f(y) = y \geq x = f(x)$. Jedoch ist $-f \notin W$, denn: $(-f)(y) = -y < -x = (-f)(x)$, also ist $-f$ streng monoton fallend auf ganz $\R$. Somit ist $\cdot$ nicht wohldefiniert auf $W$, $W$ also sicher kein Vektorraum mit $+$ und $\cdot $ wie oben.
 \end{enumerate}
 
 
