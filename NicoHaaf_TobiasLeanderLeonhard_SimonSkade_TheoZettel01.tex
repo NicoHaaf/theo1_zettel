@@ -1,0 +1,203 @@
+\documentclass{theozettel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=20mm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{compat=1.16}
+
+\usepackage{dsfont}
+
+\theoI{1}
+
+\begin{document}
+\punkteIV{1.1}{1.2}{1.3}{1.4}
+
+\section*{Aufgabe 1.1}
+\begin{enumerate}[(a)]
+	\item 	Kettenregel liefert:
+			\[
+				f'(x) = \frac{2x}{x^{2}+1}.
+			\]
+	
+	\item 	Kettenregel liefert:
+			\[
+				f'(x) = \frac{1}{2\sqrt{x^{2}+a}}\cdot 2x = \frac{x}{\sqrt{x^{2}+a}}
+			\]
+	
+	\item 	Produktregel und Kettenregel liefert:
+			\begin{align*}
+				f'(x) &= \frac{2x}{\sqrt{x^{2}+1}+1} - \frac{x^{2}}{(\sqrt{x^{2}+1}+1)^{2}}\cdot \frac{2x}{2\sqrt{x^{2}+1}} = \frac{2x(\sqrt{x^2 + 1}+1)\sqrt{x^2 +1} - x^3}{(\sqrt{x^{2}+1}+1)^{2}\sqrt{x^{2}+1}} \\ & \\
+				&= \frac{x(x^2 +1 + 2\sqrt{x^2 +1} + 1)}{(\sqrt{x^{2}+1}+1)^{2}\sqrt{x^{2}+1}} = \frac{x}{\sqrt{x^{2}+1}}
+			\end{align*}
+			
+	\item 	Regel für Differentiation der Umkehrfunktion liefert für $y = \sin^{-1}(x)$, sowie bei (1) die trigonometrische Identität:
+			\[
+				\arcsin'(x) = (\sin^{-1})'(x) = \frac{1}{\sin'(y)} = \frac{1}{\cos(y)} \stackrel{\text{(1)}}{=} \frac{1}{\sqrt{1 - \sin^{2}(y)}} = \frac{1}{\sqrt{1-x^{2}}}.
+			\]
+	
+	\item 	Eigenschaften der Exponentialfunktion liefern sofort:
+			\[
+				f(x) = \left(x^{x}\right)^{x} = \left(e^{\ln(x) \cdot x} \right)^{x} = e^{\ln(x) \cdot x^{2}}.
+			\]
+			Ketten- sowie Produktregel liefern dann:
+			\[
+				f'(x) = \left(\ln(x) \cdot x^{2}\right)' \cdot e^{\ln(x) \cdot x^{2}} = x(2\ln(x) + 1)\cdot \left(x^{x}\right)^{x}.
+			\]
+	
+	\item 	Eigenschaften der Exponentialfunktion liefern sofort:
+			\[
+				f(x) = x^{\left( x^{x} \right)} = e^{\ln(x) \left(e^{\ln(x) \cdot x}\right)}.
+			\]
+			Ketten- und Produktregel liefern:
+			\[
+				\left(e^{\ln(x) \cdot x}\right)' = (\ln(x) +1)e^{\ln(x)}.
+			\]
+			Mit Ketten- und Produktregel erhalten wir also:
+			\begin{align*}
+				f'(x) &= e^{\ln(x) \left(e^{\ln(x) \cdot x}\right)} \cdot \left[ \frac{1}{x}e^{\ln(x)x} + \ln(x)\left(\ln(x) + 1\right)e^{\ln(x)x} \right] \\ &= x^{\left( x^{x} \right)} \cdot \left[x^{x-1} + \ln(x)(\ln(x) +1)x^{x} \right].
+			\end{align*}
+\end{enumerate}
+
+
+\newpage
+\section*{Aufgabe 1.2}
+Wird im Folgenden durch Substitution integriert, so wird stets und lediglich die Substitution angegeben (stets der Form $u = g(x)$). Da lediglich nach \textbf{einer} Stammfunktion gefragt wird, verzichten wir einfach auf die additive Konstante welche Stammfunktionen unterscheidet.
+\begin{enumerate}[(a)]
+	\item 	Linearität des Integrals sowie bekannte Stammfunktionen liefern:
+			\[
+				\int 2x^{2} + \sqrt{x} + \frac{1}{x} + e^{7x}\dd x = \frac{2}{3}x^{3} + \frac{2}{3}x^{\frac{2}{3}} + \ln(x) + \frac{1}{7}e^{7x}.
+			\]
+	
+	\item 	Zweifache partielle Integration liefert:
+			\begin{align*}
+				\int x^{2} \sin(x) \dd x &= -x^{2} \cos(x) + \int 2x \cos(x) \dd x \\
+				&= -x^{2}\cos(x) + 2x\sin(x) - \int 2\sin(x) \dd x \\
+				&= -x^{2}\cos(x) + 2x\sin(x) + 2\cos(x)
+			\end{align*}
+			
+	\item 	Substitution durch $u = x^{2}$ liefert:
+			\[
+				\int x \cos(x^{2}) \dd x = \frac{1}{2} \int 2x \cos(x^{2}) \dd x = \frac{1}{2} \int \cos(u) \dd u = \frac{1}{2} \sin(u) = \frac{1}{2} \sin(x^{2}).
+			\]
+	
+	\item 	Substitution durch $u = \frac{x}{a}$ liefert:
+			\[
+				\int \frac{1}{x^{2}+a^{2}} \dd x = \frac{1}{a} \int \frac{1}{1 + \left(\frac{x}{a}\right)^{2}} \frac{\dd x}{a} = \frac{1}{a} \int \frac{1}{1+u^{2}} \dd u = \frac{1}{a} \arctan(u) = \frac{1}{a}\arctan(\frac{x}{a})
+			\]
+	
+	\item 	Zunächst partielle Integration und dann Substitution mit $u = x^{2} + 1$ liefert:
+			\begin{align*}
+				\int 1 \cdot \arctan(x) \dd x &= x\arctan(x) - \int x \frac{1}{1+x^{2}} \dd x =  x\arctan(x) - \frac{1}{2}\int \frac{1}{1+x^{2}} 2x \dd x \\
+				&= x \arctan(x) - \frac{1}{2} \int \frac{1}{u} \dd u = x\arctan(u) - \frac{1}{2} \ln(u) = x\arctan(x) - \frac{1}{2}\ln(x^{2}+1)
+			\end{align*}
+\end{enumerate}
+
+\newpage
+\section*{Aufgabe 1.3}
+\begin{enumerate}[(a)]
+	\item 	Wir erhalten durch integrieren:
+			\[
+				v(t) = v_{0} + \int_{t_{0}}^{t} a(t')\dd t' = 0 + \int_{0}^{t} a_{0}\cos(\omega t') \dd t' = \eval{\frac{a_{0}}{\omega} \sin(\omega t')}_{0}^{t} = \frac{a_{0}}{\omega} \sin(\omega t).
+			\]
+			Weiteres integrieren liefert:
+			\[
+				x(t) = x_{0} + \int_{t_{0}}^{t} v(t') \dd t' = x_{0} + \int_{0}^{t} \frac{a_{0}}{\omega} \sin(\omega t') \dd t' = x - \left[ \frac{a_{0}}{\omega^{2}} \cos(\omega t') \right]_{0}^{t} = x_{0} - \frac{a_{0}}{\omega^{2}} \cos(\omega t) + \frac{a_{0}}{\omega^{2}}.
+			\]
+	
+	\item 	Wir rechnen aus:
+			\begin{align*}
+				\overline{v}(T) &= \frac{1}{T} \int_{0}^{T} v(t) \dd t = \frac{1}{T} \int_{0}^{T} \frac{a_{0}}{\omega} \sin(\omega t) \dd t = -\frac{1}{T} \left[ \frac{a_{0}}{\omega^{2}} \cos(\omega t') \right]_{0}^{T} = \frac{a_{0}}{\omega^{2}} \left( \frac{\cos(\omega T)}{T} - \frac{1}{T} \right) \\
+				\overline{x}(T) &= \frac{1}{T} \int_{0}^{T} x(t) \dd t = \frac{1}{T} \int_{0}^{T} \left(x_{0}+\frac{a_{0}}{\omega^{2}}\right) - \frac{a_{0}}{\omega^{2}}\cos(\omega t) \dd t \\
+				&= \frac{1}{T} \left[\left(x_{0}+\frac{a_{0}}{\omega^{2}}\right)t - \frac{a_{0}}{\omega^{3}}\sin(\omega t) \right]_{0}^{T} = x_{0}+\frac{a_{0}}{\omega^{2}} - \frac{a_{0}}{\omega^{3} } \cdot \frac{\sin(\omega T)}{T}.
+			\end{align*}
+			Da folgende Zähler beschränkt bleiben und im Nenner $T \to \infty$ erhalten wir:
+			\[
+				\frac{\cos(\omega T)}{T}, \ \frac{1}{T}, \ \frac{\sin(\omega T)}{T} \stackrel{T \to \infty}{\longrightarrow} 0.
+			\]
+			Daraus folgt sofort:
+			\[
+				\overline{v}(T) \stackrel{T \to \infty}{\longrightarrow} 0, \ \ \ \overline{x}(T) \stackrel{T \to \infty}{\longrightarrow} x_{0}+\frac{a_{0}}{\omega^{2}}.
+			\]
+\end{enumerate}
+
+\newpage
+\section*{Aufgabe 1.4}
+Sei $V$ die Menge alle reellwertigen Funktionen $f \colon \R \to \R, x \mapsto f(x)$. Wir definieren folgende Operationen auf $V$:
+	\begin{align*}
+		+ &\colon V \times V \to V, \ \ \ (f,g) \mapsto f+g, &&\text{mit} \ (f+g)(x) \coloneqq f(x) + g(x) \in \R, \\
+		\cdot &\colon \R \times V \to V, \ \ \ (a,f) \mapsto a \cdot f, &&\text{mit} \ (a \cdot f)(x) \coloneqq a \cdot f(x) \in \R.
+	\end{align*}
+\begin{enumerate}
+	\item 	Wir rechnen die Axiome eines Vektorraums nach. Seien $f,g,h \in V$, $\alpha, \beta \in \R$.  Es gilt $f=g$ genau dann wenn für alle $x \in \R$ gilt $f(x) = g(x)$. Daher reicht folgendes aus:
+			\begin{itemize}
+				\item 	Assoziativität: 
+						\[
+							\left(f+(g+h)\right)(x) = f(x) + (g+h)(x) = f(x) + g(x) + h(x) = (f+g)(x) + h(x) = \left((f+g)+h\right)(x).
+						\]
+				
+				\item 	Kommutativität:
+						\[
+							(f+g)(x) = f(x) + g(x) = g(x) + f(x) = (g+f)(x).
+						\]
+				
+				\item 	Die Existenz eines Null: $c(x) = 0$ für alle $x \in \R$ ist die Null in $V$, denn:
+						\[
+							(f+c)(x) = f(x) + c(x) = f(x) + 0 = f(x).
+						\]
+						
+				\item 	Distributivität bzgl. $+$ in $V$:
+						\begin{align*}
+						\left(\alpha (f+g)\right)(x) & = \alpha \cdot (f+g)(x) = \alpha (f(x) + g(x)) = \alpha f(x) + \alpha g(x) = (\alpha f)(x) + (\alpha g)(x) \\ &= (\alpha f + \alpha g)(x).
+						\end{align*}
+				
+				\item 	Distributivität bzgl. $\cdot$ in $\R$:
+						\[
+							((\alpha + \beta)f)(x) = (\alpha + \beta)f(x) = \alpha f(x) + \beta f(x) = (\alpha f + \beta f)(x).
+						\]
+				
+				\item	Assoziativität der Multiplikation:
+						\[
+							(\alpha(\beta f))(x) = \alpha \cdot (\beta f)(x) = \alpha \beta f(x) = ((\alpha \beta)f)(x).
+						\]
+				
+				\item 	Multiplikation mit $1$:
+						\[
+							(1 \cdot f)(x) = 1 \cdot f(x) = f(x).
+						\]
+			\end{itemize}
+	
+	\item 	Die Menge $S \subset V$ der symmetrischen Funktionen bilden mit der vom Vektorraum $V$ geerbten Struktur einen Vektorraum. Es genügt nachzurechnen, dass $c = 0 \in S$ sowie, dass die Operationen $+$ und $\cdot$ nicht aus $S$ rausführen, allen anderen Axiome ergeben sich aus der geerbten Struktur:
+			\begin{itemize}
+				\item 	$c \in S$ wegen: $c(x) = 0 = c(-x)$ für alle $x \in \R$.
+				
+				\item 	$f,g \in S$, dann auch $f+g \in S$, denn:
+						\[
+							(f+g)(x) = f(x) + g(x) = f(-x) + g(-x) = (f+g)(-x).
+						\]
+				
+				\item 	$\alpha \in \R$, $f \in S$, dann auch $\alpha f \in S$, denn:
+						\[
+							(\alpha f)(x) = \alpha f(x) = \alpha f(-x) = (\alpha f)(x).
+						\]
+			\end{itemize}
+			Die Menge der monoton steigenden Funktionen $W \subset V$ ist kein Vektorraum mit der Struktur von $V$, denn: es ist $f \in W$ wobei $f(x) = x$, den für $x \in \R$ gilt für alle $y > x$ sicherlich auch $f(y) = y \geq x = f(x)$. Jedoch ist $-f \notin W$, denn: $(-f)(y) = -y < -x = (-f)(x)$, also ist $-f$ streng monoton fallend auf ganz $\R$. Somit ist $\cdot $nicht wohldefiniert auf $W$, $W$ also sicher kein Vektorraum mit $+$ und $\cdot $ wie oben.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\end{document}
