@@ -22,17 +22,105 @@
 
 \section*{Aufgabe 2.1}
 
-
 \newpage
-\section*{Aufgabe 2.2}
+\section{Aufgabe 2.2}
 
 
 \newpage
 \section*{Aufgabe 2.3}
 
+a)
+
+Der Geschwindigkeitsvektor ergibt sich aus der Ableitung des Positionsvektors:
+
+$$
+\vec{x}(t) = \begin{pmatrix}
+R cos(\omega t) \\
+R sin(\omega t) \\
+v_0 t
+\end{pmatrix}
+$$
+
+$$
+\vec{v	}(t) = \dot{vec{x}}(t) = \begin{pmatrix}
+- R \omega sin(\omega t) \\
+R \omega cos(\omega t) \\
+v_0
+\end{pmatrix}
+$$
+
+Die Bogenlänge berechnet sich wie folgt:
+
+$$
+s(t) =  \int_{t_0}^{t} d t' | \vec{v}(t') | = \int_{t_0}^{t} d t' \sqrt{\vec{v}(t')^{2}} = \int_{0}^{t} d t' \sqrt{R^{2}\omega^{2} ((-sin(\omega t'))^{2} + cos(\omega t')^{2} + v_0^{2}} = \sqrt{R^{2} \omega^{2} + v_0^{2}} t
+$$
+
+Man beachte hierbei, dass die Integrationskonstante tatsächlich $0$ ist, da $s(t_0 = 0) = 0$ angenommen wurde.
+
+Die Formel kann umgestellt werden zu:
+
+$$
+t(s) = \frac{s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}
+$$
+
+Der Tangentenvektor entspricht dem auf $1$ normierten Geschwindigkeitsvektor:
+
+$$
+\vec{T}(s) = \frac{\vec{v}(t(s))}{|\vec{v}(t(s))|} = \frac{1}{\sqrt{R^{2} \omega^{2} + v_0^{2}}} \begin{pmatrix}
+- R \omega sin(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}) \\
+R \omega cos(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}) \\
+v_0
+\end{pmatrix}
+$$
+
+Für den Krümmungsradius gilt:
+
+$$
+\rho = \frac{1}{|\frac{d\vec{T}}{ds}|} = \frac{1}{|\begin{pmatrix}
+\frac{- R \omega^{2}}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}cos(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}) \\
+\frac{- R \omega^{2}}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}sin(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}) \\
+0
+\end{pmatrix} |} = \frac{1}{\frac{- R \omega^{2}}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}}
+$$
+
+Der Normalenvektor ergibt sich wie folgt:
+
+$$
+\vec{N}(s) = \rho \frac{d\vec{T}}{ds} =\begin{pmatrix}
+-cos(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}) \\
+-sin(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}) \\
+0
+\end{pmatrix} 
+$$
+
+Der Binormalenvektor berechnet sich wie folgt:
+
+\begin{align}
+\vec{B}(s) &= \vec{T}(s) \times \vec{N}(s) \\&= \frac{1}{\sqrt{R^{2} \omega^{2} + v_0^{2}}} \begin{pmatrix}
+R \omega cos(\omega t(s)) 0 - v_0 (-sin(\omega t(s))) \\
+v_0 -cos(\omega t(s)) - 0 (-R \omega sin(\omega t(s)) \\
+-R \omega sin(\omega t(s) (-sin(\omega t(s)))  - R \omega \cos(\omega t(s)) (-cos(\omega t(s)))
+\end{pmatrix} \\ &= \frac{1}{\sqrt{R^{2} \omega^{2} + v_0^{2}}} \begin{pmatrix}
+v_0 (-sin(\omega \frac{s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}})) \\
+v_0 (-cos(\omega \frac{s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}})) \\
+R \omega
+\end{pmatrix}
+\end{align}
+b)
+
+Aufgrund der alternativen Definition des Vektorprodukts muss gelten, dass $\vec{B}(s) \perp \vec{T}(s)$ und $\vec{B}(s) \perp \vec{N}(s)$. Dass $\vec{B}(s) \perp \vec{N}(s)$ gilt, kann dadurch gezeigt werden, dass das Skalarprodukt $0$ ist:
+
+\begin{align}
+\vec{T}(s) \cdot \vec{N}(s) &= \frac{1}{\sqrt{R^{2} \omega^{2} + v_0^{2}}}
+((- R \omega sin(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}})) (-cos(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^{2}}})) \\&+ (R \omega cos(\frac{\omega s}{\sqrt{R^{2} \omega^{2} + v_0^2}})) (-sin(\frac{\omega s}{\sqrt{R^{2} \omega^{2}
++ v_0^{2}}})) + 0 v_0 = 0
+\end{align}
+
+
+
 
 \newpage
-\section*{Aufgabe 2.4}
+\section{Aufgabe 2.4}
 
 
 
