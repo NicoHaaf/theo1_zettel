@@ -14,7 +14,7 @@
 \pgfplotsset{compat=1.16}
 
 \usepackage{dsfont}
-
+\newcommand{\difd}{\text{d}}
 \usepackage{titlesec} 
 \titleformat{\section}[runin]
 {\normalfont\large\bfseries}{\thesubsection}{1em}{}
@@ -42,6 +42,49 @@ e^y +c_y &= \frac{1}{2} e^{2x} + c_x = e^{2x+ \ln\left(\frac{1}{2}\right)}+c_x\\
 \Rightarrow y&= 2x+ \ln{\left(\frac{1}{2}\right)}+c
 \end{align*}
 \subsection*{b)}$\frac{dy}{dx} = \frac{x}{2y}\left(e^{-x}+\frac{y^2}{x^2}\right)$\\
+\subsection*{b)}$\frac{\text{d}y}{\text{d}x} = \frac{x}{2y}\left(e^{-x}+\frac{y^2}{x^2}\right)$\\
+\begin{align*}
+\frac{\text{d}y}{\text{d}x}&=\frac{x}{2y}\left(e^{-x}+\frac{y^2}{x^2}\right)\\
+&=\frac{x}{y}\cdot\frac{e^{-x}}{2}+\frac{y}{x}\cdot\frac{1}{2}
+\end{align*}
+Setze $z:=\frac{y}{x}$\\ 
+\begin{align*}
+&\Rightarrow y=z\cdot x\\
+&\Rightarrow \frac{\text{d}y}{\text{d}x}=\frac{\text{d}z}{\text{d}x}\cdot x +z
+\end{align*}
+Ersetze $\frac{\text{d}y}{\text{d}x}$ mit $\frac{\text{d}z}{\text{d}x}\cdot x+z$ und $\frac{y}{x}$ mit $z$:
+\begin{align*}
+\frac{\text{d}z}{\text{d}x}\cdot x +z&=\frac{e^{-x}}{2z}+\frac{z}{2} &&|-\frac{z}{2}\\
+\Leftrightarrow\frac{\text{d}z}{\text{d}x}\cdot x +\frac{z}{2}&=\frac{e^{-x}}{2z} &&|\cdot z\\
+\Leftrightarrow\frac{\difd z}{\difd x}zx+\frac{z}{2}&=\frac{e^{-x}}{2}
+\end{align*}
+Beachte:
+\begin{align*}
+\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}&=\frac{1}{2}\left(2\frac{\text{d}z}{\text{d}x}zx+z\right)\\
+&=\frac{\difd z}{\difd x}zx+\frac{z}{2}
+\end{align*}
+Ersetze $\frac{\difd z}{\difd x}zx+\frac{z}{2}$ mit $\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}$:
+\begin{align*}
+\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}&=\frac{e^{-x}}{z}&&|\cdot 2\\
+\Leftrightarrow\frac{\difd \left(z^2\cdot x\right)}{\difd x}&=e^{-x}
+\end{align*}
+Dieser Term l"asst sich einfach mit d$x$ integrieren:
+\begin{align*}
+\int\frac{\difd \left(z^2\cdot x\right)}{\difd x}\difd x &=\int e^{-x}\difd x\\
+\Leftrightarrow z^2\cdot x +c_z&=-e^{-x}+c_x
+\end{align*}
+Mit $c=c_x-c_z$ ergibt sich:
+\begin{align*}
+z^2\cdot x &=-e^{-x}+c&&|:x\\
+\Leftrightarrow z^2&=\frac{-e^{-x}+c}{x}&&|\text{Resubstituiere $z$, zur Erinnerung: $z=\frac{y}{x}$}\\
+\Leftrightarrow\frac{y^2}{x^2}&=\frac{-e^{-x}+c}{x}&&|\cdot x^2\\
+\Leftrightarrow y^2&=\left(-e^{-x}+c\right)x &&|\sqrt{}\\
+y&= \pm\sqrt{x\left(-e^{-x}+c\right)}
+\end{align*}
+Somit ist die allgemeine L"osung der Differenzialgleichung:
+\begin{align*}
+y&= \pm\sqrt{x\left(-e^{-x}+c\right)}
+\end{align*}
 \subsection*{c)} Bestimmen Sie die L"osung des Anfangswertproblems:
 \begin{center}
 $\frac{dy}{dx} = -y^2 \sin\left(x\right)$,  $ \ y\left(\frac{\pi}{2}\right)=1$
