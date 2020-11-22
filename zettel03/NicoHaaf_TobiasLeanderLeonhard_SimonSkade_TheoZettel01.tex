@@ -64,7 +64,7 @@ $$
 Nun soll gezeigt werden, dass für $\vec{z} = \vec{x} \cross \vec{y}$ gilt: $|z| = |x||y||sin(\theta)|$. Hierfür wird zunächst $\vec{z} \cdot \vec{z}$ betrachtet.
 
 \begin{align}
-|z|^{2} &= vec{z} \cdot \vec{z} \\
+|z|^{2} &=  \vec{z} \cdot \vec{z} \\
 &= z_k z_k \\
 &= (\epsilon_{kij} x_i y_j) (\epsilon_{klm} x_l y_m) \\
 &= \delta_{il} \delta_{jm} x_i y_j x_l y_m - \delta_{im} \delta_{jl} x_i y_j x_l y_m \\
@@ -154,6 +154,102 @@ $\frac{dy}{dx} = -y^2 \sin\left(x\right)$,  $ \ y\left(\frac{\pi}{2}\right)=1$
 \end{align*}
 \newpage
 \section*{Aufgabe 3.3}Differenzialgleichungen II\\
+
+a)
+
+Offensichtlich muss die DGL wie folgt aussehen:
+
+$$
+\dot{N} = - k N
+$$
+
+Hier ist es auch nicht schwer, eine Funktion zu finden, die eine Lösung dieser DGL darstellt, da der Ansatz einer Exponentialfunktion sehr vielversprechend aussieht. Man sieht such recht schnell, dass folgende Funktion die allgemeine Lösung darstellt:
+
+$$
+N(t) = c e^{-k t}
+$$
+
+Mit unserer Anfangsbedingung ergibt sich für $c$:
+
+$$
+N(0) = c = N_0
+$$
+
+Für die Halbwertszeit $\tau$ gilt:
+
+$$
+N(\tau) = \frac{N_0}{2} = N_0 e^{-k \tau}
+$$
+
+Umgeformt auf $\tau$:
+
+$$
+\tau = \frac{\ln(2)}{k}
+$$
+
+b)
+
+In der neuen DGL gibt es noch den konstanten Summanden $\alpha$, der die Erzeugung der Atome darstellt:
+
+$$
+\dot{N} = \alpha - k N
+$$
+
+%Da $\alpha$ unabhängig von $N$ oder einer Ableitung davon ist, können $\alpha$ und $-k N$ separat betrachtet werden.
+%$$
+%\dot{N_1} = \alpha
+%$$
+%$$
+%\int^{t} \dot{N_2} dt' = N(t) = \int^{t} \alpha dt' = \alpha t + C
+%$$
+
+%Die zweite Gleichung $\dot{N} = - k N$ ergibt offensichtlich das Ergebnis aus (a).
+
+%Nun können die Gleichungen wieder zusammengefügt werden:
+
+Dies ist der zur der DGL aus Teilaufgabe (a) korrespndierende inhomogene Fall. Deshalb wird als Ansatz die Variation der Konstanten verwendet:
+
+$$
+N(t) = C(t) e^{-kt}
+$$
+
+$$
+\dot{N}(t) = \dot{C}(t) e^{-kt} - k C(t) e^{-kt}
+$$
+
+Eingesetzt in die DGL ergibt das:
+
+$$
+\dot{C}(t) e^{-kt} - k C(t) e^{-kt} + k C(t) e^{-kt} = \alpha
+$$
+
+$$
+\dot{C}(t) e^{-kt} = \alpha
+$$
+
+$$
+C(t) = \int^{t} \frac{\alpha}{e^{-kt'}} dt' =  \int^{t} \alpha e^{kt'} dt' = \frac{\alpha}{k} e^{kt} + C_k
+$$
+
+Die allgemeine Lösung ist somit:
+
+$$
+N(t) = (\frac{\alpha}{k} e^{kt} + C_k) e^{-kt} = \frac{\alpha}{k} + C_k e^{-kt}
+$$
+
+Lösen für die Anfangsbedingung:
+
+$$
+N(0) = N_0 = - \frac{\alpha}{k} + C_k e^{-0k} = C_k + \frac{\alpha}{k} 
+$$
+
+Somit ist $C_k = N_0 - \frac{\alpha}{k} $.
+
+$$
+N(t) = \frac{\alpha}{k} + (N_0 - \frac{\alpha}{k}) e^{-kt}
+$$
+
+Der Grenzwert für $\lim_{t \to \infty} N(t)$ ist offensichtlich $\frac{\alpha}{k}$, da $\lim_{t \to \infty} e^{-kt} = 0$.
 
 
 \newpage
