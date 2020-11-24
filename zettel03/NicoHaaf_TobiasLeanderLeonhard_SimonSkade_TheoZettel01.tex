@@ -21,7 +21,11 @@
 {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsection}[runin]
   {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+  
+  
 \theoI{3}
+
+
 
 \begin{document}
 \punkteIV{3.1}{3.2}{3.3}{3.4}
@@ -45,25 +49,16 @@ Das gleiche gilt wieder analog für $l,m$.
 
 Der Rest kann durch ausprobieren gezeigt werden:
 
-$$
-1 = \epsilon_{123} \epsilon_{123} = \delta_{22} \delta_{33} - \delta_{23} \delta_{32} = 1 - 0 = 1
-$$
-
-$$
--1 = \epsilon_{123} \epsilon_{132} = \delta_{23} \delta_{32} - \delta_{22} \delta_{33} = 0 - 1 = -1
-$$
-
-$$
--1 = \epsilon_{132} \epsilon_{123} = \delta_{32} \delta_{23} - \delta_{33} \delta_{22} = 0 - 1 = -1
-$$
-
-$$
-1 = \epsilon_{132} \epsilon_{132} = \delta_{33} \delta_{22} - \delta_{32} \delta_{23} = 1 - 0 = 1
-$$
+\begin{align*}
+	&1 = \epsilon_{123} \epsilon_{123} = \delta_{22} \delta_{33} - \delta_{23} \delta_{32} = 1 - 0 = 1 \\ \\
+	-&1 = \epsilon_{123} \epsilon_{132} = \delta_{23} \delta_{32} - \delta_{22} \delta_{33} = 0 - 1 = -1 \\ \\
+	-&1 = \epsilon_{132} \epsilon_{123} = \delta_{32} \delta_{23} - \delta_{33} \delta_{22} = 0 - 1 = -1 \\ \\
+	&1 = \epsilon_{132} \epsilon_{132} = \delta_{33} \delta_{22} - \delta_{32} \delta_{23} = 1 - 0 = 1
+\end{align*}
 
 Nun soll gezeigt werden, dass für $\vec{z} = \vec{x} \cross \vec{y}$ gilt: $|z| = |x||y||sin(\theta)|$. Hierfür wird zunächst $\vec{z} \cdot \vec{z}$ betrachtet.
 
-\begin{align}
+\begin{align*}
 |z|^{2} &=  \vec{z} \cdot \vec{z} \\
 &= z_k z_k \\
 &= (\epsilon_{kij} x_i y_j) (\epsilon_{klm} x_l y_m) \\
@@ -71,13 +66,13 @@ Nun soll gezeigt werden, dass für $\vec{z} = \vec{x} \cross \vec{y}$ gilt: $|z|
 &= x_i^{2} y_i^{2} - (x \cdot y)^{2} \\
 &= |x|^{2} |y|^{2} -  |x|^{2} |y|^{2} \cos(\theta)^{2} \\
 &= |x|^{2} |y|^{2} \sin(\theta)^{2} \\
-\end{align}
+\end{align*}
 
 Da stets gilt $|z| > 0$ gilt somit:
 
-\begin{align}
-|z| &= |x| |y| |\sin(\theta)|\ \ \blacksquare
-\end{align}
+\begin{align*}
+|z| &= |x| |y| |\sin(\theta)| 
+\end{align*} \hfill $\blacksquare$
 
 \newpage
 \section*{Aufgabe 3.2} Bestimmen Sie die allgemeine L"osung der Differenzialgleichungen\\
@@ -316,8 +311,49 @@ F"ur $\frac{\partial}{\partial z}\frac{\partial}{\partial x}F\left(x,y,z\right) 
 &= ye^{xy}+2x\cos\left(z\right)\\\\
 \Rightarrow \frac{\partial}{\partial z}\frac{\partial}{\partial x}F\left(x,y,z\right) &=\frac{\partial}{\partial x}\frac{\partial}{\partial z}F\left(x,y,z\right)
 \end{align*}
+
+
+
 \newpage
-\section*{Aufgabe 3.5} Trajektorie und co.
+\section*{Aufgabe 3.5} 
+Ist die Teilchenbahn durch die Zeit parametrisiert, so gilt:
+	\[
+		\frac{1}{\rho} = \frac{\qty| \dot{\vec{x}} \times \ddot{\vec{x}} |}{\qty| \dot{\vec{x}}^{3} |}.
+	\]
+
+Zunächst zeigen wir: \textit{das Kreuzprodukt zweier paralleler Vektoren verschwindet}: seien $v,w \in \R^{3}$ parallel. Dann existiert ein $t \in \R$ sodass $t \cdot v = w$. Dann rechnen wir direkt aus:
+	\begin{align*}
+		v \times w &= v \times (tv) = \mqty(v_{2}tv_{3} - v_{3}tv_{2} \\ v_{3}tv_{1} - v_{1}tv_{3} \\ v_{1}tv_{2} - v_{2}tv_{1} ) = \mqty(0 \\ 0 \\ 0).
+	\end{align*}
+Analog rechnet man nach, dass für $\alpha, \beta, \lambda \in \R$, $x \in \R^{3}$ gilt:
+	\begin{equation}
+		(\alpha v) \times (\beta w + \lambda x) = \alpha \beta (v \times w) + \alpha \lambda (v \times x).
+	\end{equation}
+Es sind $\vec{x} = \vec{x(s)}$ und $s = s(t)$. Die Kettenregel liefert:
+	\begin{equation}
+		\dot{\vec{x}} = \dv{t} \vec{x}(s) = \dv{s}{t} \cdot \dv{\vec{x}}{s}.
+	\end{equation}
+Woraus wir mit Produkt- und Kettenregel folgern:
+	\begin{equation}
+		\ddot{\vec{x}} = \dv[2]{t} \vec{x} = \dv{t} \qty( \dv{s}{t} \cdot \dv{\vec{x}}{s} ) = \dv[2]{s}{t} \cdot \dv{\vec{x}}{s} + \qty( \dv{s}{t} )^{2} \cdot \dv[2]{\vec{x}}{s}.
+	\end{equation}
+Nach Vorlesung gilt:
+	\begin{align}
+		\dv{s}{t} &= \qty| \dv{\vec{x}}{t} |, \\
+		\vec{T} &= \dv{\vec{x}}{s}, \\
+		\frac{1}{\rho} \vec{N} &= \dv{\vec{T}}{s} = \dv[2]{\vec{x}}{s}, \\
+		\qty| \vec{T} \times \vec{N} | &= \qty| \vec{B} | = 1.
+	\end{align}	
+Somit erhalten wir: (bei (8) verwenden wir das obige Parallelitätsargument)
+
+	\begin{align*}
+		\frac{\qty| \dot{\vec{x}} \times \ddot{\vec{x}} |}{\qty| \dot{\vec{x}} |^{3}} &\stackrel{\text{(2) und (3)}}{=} \frac{\qty| \qty( \dv{s}{t} \cdot \dv{\vec{x}}{s} ) \times \qty( \dv[2]{s}{t} \cdot \dv{\vec{x}}{s} + \qty( \dv{s}{t} )^{2} \cdot \dv[2]{\vec{x}}{s} )|}{\qty| \dot{\vec{x}} |^{3}} \\
+		&\ \ \ \ \stackrel{\text{(1)}}{=}\ \ \ \ \frac{\qty| \dv{s}{t} \cdot \qty( \dv{\vec{x}}{s} \times \dv[2]{s}{t} \cdot \dv{\vec{x}}{s}) + \qty(\dv{s}{t})^{3} \cdot \qty( \dv{\vec{x}}{s} \times \dv[2]{\vec{x}}{s} ) |}{\qty| \dot{\vec{x}} |^{3}} \\
+		&\ \ \ \ \stackrel{\text{(8)}}{=} \ \ \ \ \frac{\qty| \qty(\dv{s}{t})^{3} \cdot \qty( \dv{\vec{x}}{s} \times \dv[2]{\vec{x}}{s} ) |}{\qty| \dot{\vec{x}} |^{3}} \\
+		&\ \ \ \stackrel{\text{(1,5-6)}}{=} \ \ \frac{\qty(\dv{s}{t})^{3}}{\qty| \dot{\vec{x}} |^{3}} \cdot \qty| \vec{T} \times \frac{1}{\rho} \vec{N}  | \\
+		&\ \ \ \stackrel{\text{(1,4,7)}}{=} \ \ \frac{\qty(\dv{s}{t})^{3}}{\qty(\dv{s}{t})^{3}} \cdot \frac{1}{\rho} = \frac{1}{\rho}
+	\end{align*}
+
 
 
 
