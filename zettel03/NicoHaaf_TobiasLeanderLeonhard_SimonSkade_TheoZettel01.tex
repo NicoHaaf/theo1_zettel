@@ -253,66 +253,69 @@ Der Grenzwert für $\lim_{t \to \infty} N(t)$ ist offensichtlich $\frac{\alpha}{
 $F\left(x,y,z\right)=ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)$
 \end{center}
 Zeigen Sie au"serdem f"ur dieses Beispiel, dass $\frac{\partial}{\partial x}\frac{\partial}{\partial y}F\left(x,y,z\right) =\frac{\partial}{\partial y}\frac{\partial}{\partial x}F\left(x,y,z\right)$ (Satz von Schwarz) und genauso f"ur $x$,$z$ und $y$,$z$.\\\\
-Zuerst die erste und zweite partielle Ableitung:\\\\
+Zuerst die erste und zweite partielle Ableitung:\\
+Die partiellen Ableitungen beziehen sich immer auf den kompletten Term hinter dem \glqq =\grqq.\\\\\
 F"ur $x$:\\
 \begin{align*}
-\frac{\partial}{\partial x}F\left(x,y,z\right) &=\frac{\partial}{\partial x}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
+\frac{\partial}{\partial x}F\left(x,y,z\right) &=\frac{\partial}{\partial x}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
 &=yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\\\\
-\frac{\partial^2}{\partial x^2}F\left(x,y,z\right) &=\frac{\partial^2}{\partial x^2}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=\frac{\partial}{\partial x}yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\\
+\frac{\partial^2}{\partial x^2}F\left(x,y,z\right) &=\frac{\partial^2}{\partial x^2}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=\frac{\partial}{\partial x}\left[yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\right]\\
 &= y^2 z e^{xy}+2\sin\left(z\right) +2 \cdot\frac{1-x^2+y^2}{\left(1+x^2+y^2\right)^2}
 \end{align*}
 
 F"ur $y$:\\
 \begin{align*}
-\frac{\partial}{\partial y}F\left(x,y,z\right) &=\frac{\partial}{\partial y}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
+\frac{\partial}{\partial y}F\left(x,y,z\right) &=\frac{\partial}{\partial y}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
 &=xze^{xy}+2y\sin\left(z\right)+\frac{2y}{1+x^2+y^2}\\\\
-\frac{\partial^2}{\partial y^2}F\left(x,y,z\right) &=\frac{\partial^2}{\partial y^2}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=\frac{\partial}{\partial y}xze^{xy}+2y\sin\left(z\right)+\frac{2y}{1+x^2+y^2}\\
+\frac{\partial^2}{\partial y^2}F\left(x,y,z\right) &=\frac{\partial^2}{\partial y^2}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=\frac{\partial}{\partial y}\left[xze^{xy}+2y\sin\left(z\right)+\frac{2y}{1+x^2+y^2}\right]\\
 &= x^2 z e^{xy}+2\sin\left(z\right) +2 \cdot\frac{1+x^2-y^2}{\left(1+x^2+y^2\right)^2}
 \end{align*}
 
 F"ur $z$:\\
 \begin{align*}
-\frac{\partial}{\partial z}F\left(x,y,z\right) &=\frac{\partial}{\partial z}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=e^{xy}+\cos\left(z\right)\cdot\left(x^2+y^2\right)\\\\
-\frac{\partial^2}{\partial z^2}F\left(x,y,z\right) &=\frac{\partial^2}{\partial z^2}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=\frac{\partial}{\partial z}e^{xy}+\left(x^2+y^2\right)\cos\left(z\right)\\
+\frac{\partial}{\partial z}F\left(x,y,z\right) &=\frac{\partial}{\partial z}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=e^{xy}+\cos\left(z\right)\cdot\left(x^2+y^2\right)\\\\\\
+\frac{\partial^2}{\partial z^2}F\left(x,y,z\right) &=\frac{\partial^2}{\partial z^2}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=\frac{\partial}{\partial z}\left[e^{xy}+\left(x^2+y^2\right)\cos\left(z\right)\right]\\
 &= -\sin\left(z\right) \cdot \left(x^2+y^2\right)
 \end{align*}
 Nun der Satz von Schwarz:\\\\
 F"ur $\frac{\partial}{\partial x}\frac{\partial}{\partial y}F\left(x,y,z\right) =\frac{\partial}{\partial y}\frac{\partial}{\partial x}F\left(x,y,z\right)$ :
 \begin{align*}
-\frac{\partial}{\partial x}\frac{\partial}{\partial y}F\left(x,y,z\right) &= \frac{\partial}{\partial x}\frac{\partial}{\partial y}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=\frac{\partial}{\partial x}xze^{xy}+2y\sin\left(z\right)+\frac{2y}{1+x^2+y^2}\\
+\frac{\partial}{\partial x}\frac{\partial}{\partial y}F\left(x,y,z\right) &= \frac{\partial}{\partial x}\frac{\partial}{\partial y}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=\frac{\partial}{\partial x}\left[xze^{xy}+2y\sin\left(z\right)+\frac{2y}{1+x^2+y^2}\right]\\
 &= ze^{xy}+xze^{xy}-\frac{4xy}{\left(1+x^2+y^2\right)^2}\\\\
-\frac{\partial}{\partial y}\frac{\partial}{\partial x}F\left(x,y,z\right) &= \frac{\partial}{\partial y}\frac{\partial}{\partial x}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&= \frac{\partial}{\partial y}yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\\
+\frac{\partial}{\partial y}\frac{\partial}{\partial x}F\left(x,y,z\right) &= \frac{\partial}{\partial y}\frac{\partial}{\partial x}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&= \frac{\partial}{\partial y}\left[yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\right]\\
 &= ze^{xy}+xze^{xy}-\frac{4xy}{\left(1+x^2+y^2\right)^2}\\\\
 \Rightarrow \frac{\partial}{\partial x}\frac{\partial}{\partial y}F\left(x,y,z\right) &=\frac{\partial}{\partial y}\frac{\partial}{\partial x}F\left(x,y,z\right)\\
 \end{align*}
 F"ur $\frac{\partial}{\partial y}\frac{\partial}{\partial z}F\left(x,y,z\right) =\frac{\partial}{\partial z}\frac{\partial}{\partial y}F\left(x,y,z\right)$ :
 \begin{align*}
-\frac{\partial}{\partial y}\frac{\partial}{\partial z}F\left(x,y,z\right) &= \frac{\partial}{\partial y}\frac{\partial}{\partial z}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=\frac{\partial}{\partial y}e^{xy}+\cos\left(z\right)\cdot\left( x^2+y^2\right)\\
+\frac{\partial}{\partial y}\frac{\partial}{\partial z}F\left(x,y,z\right) &= \frac{\partial}{\partial y}\frac{\partial}{\partial z}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=\frac{\partial}{\partial y}\left[e^{xy}+\cos\left(z\right)\cdot\left( x^2+y^2\right)\right]\\
 &= xe^{xy}+2y\cos\left(z\right)\\\\
-\frac{\partial}{\partial z}\frac{\partial}{\partial y}F\left(x,y,z\right)&= \frac{\partial}{\partial z}\frac{\partial}{\partial y}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&= \frac{\partial}{\partial z}xze^{xy}+2y\sin\left( z\right)+\frac{2y}{1+x^2+y^2}\\
+\frac{\partial}{\partial z}\frac{\partial}{\partial y}F\left(x,y,z\right)&= \frac{\partial}{\partial z}\left[\frac{\partial}{\partial y}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&= \frac{\partial}{\partial z}\left[xze^{xy}+2y\sin\left( z\right)+\frac{2y}{1+x^2+y^2}\right]\\
 &= xe^{xy}+2y\cos\left(z\right)\\\\
 \Rightarrow \frac{\partial}{\partial y}\frac{\partial}{\partial z}F\left(x,y,z\right) &=\frac{\partial}{\partial z}\frac{\partial}{\partial y}F\left(x,y,z\right)\\
 \end{align*}
 F"ur $\frac{\partial}{\partial z}\frac{\partial}{\partial x}F\left(x,y,z\right) =\frac{\partial}{\partial x}\frac{\partial}{\partial z}F\left(x,y,z\right)$ :
 \begin{align*}
-\frac{\partial}{\partial z}\frac{\partial}{\partial x}F\left(x,y,z\right) &= \frac{\partial}{\partial z}\frac{\partial}{\partial x}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&=\frac{\partial}{\partial z}yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\\
+\frac{\partial}{\partial z}\frac{\partial}{\partial x}F\left(x,y,z\right) &= \frac{\partial}{\partial z}\frac{\partial}{\partial x}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&=\frac{\partial}{\partial z}\left[yze^{xy}+2x\sin\left(z\right)+\frac{2x}{1+x^2+y^2}\right]\\
 &= ye^{xy}+2x\cos\left(z\right)\\\\
-\frac{\partial}{\partial x}\frac{\partial}{\partial z}F\left(x,y,z\right)&= \frac{\partial}{\partial x}\frac{\partial}{\partial z}ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\\
-&= \frac{\partial}{\partial x}e^{xy}+\cos\left(z\right)\cdot\left(x^2+y^2\right)\\
+\frac{\partial}{\partial x}\frac{\partial}{\partial z}F\left(x,y,z\right)&= \frac{\partial}{\partial x}\frac{\partial}{\partial z}\left[ze^{xy}+\left(x^2+y^2\right)\sin\left(z\right)+\ln\left(1+x^2+y^2\right)\right]\\
+&= \frac{\partial}{\partial x}\left[e^{xy}+\cos\left(z\right)\cdot\left(x^2+y^2\right)\right]\\
 &= ye^{xy}+2x\cos\left(z\right)\\\\
 \Rightarrow \frac{\partial}{\partial z}\frac{\partial}{\partial x}F\left(x,y,z\right) &=\frac{\partial}{\partial x}\frac{\partial}{\partial z}F\left(x,y,z\right)
 \end{align*}
-
-
+Da f"ur dieses Beispiel, die partiellen Ableitungen $\frac{\partial}{\partial x}\frac{\partial}{\partial y}F\left(x,y,z\right) =\frac{\partial}{\partial y}\frac{\partial}{\partial x}F\left(x,y,z\right)$ und genauso f"ur $x$,$z$ und $y$,$z$ erf"ullt sind, ist der Satz von Schwarz f"ur dieses Beispiel auch erf"ullt.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
 
 \newpage
 \section*{Aufgabe 3.5} 
