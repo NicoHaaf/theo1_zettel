@@ -83,9 +83,9 @@ Da stets gilt $|z| > 0$ gilt somit:
 \frac{dy}{e^{-y}}	&= e^{2x} dx\\
 e^y dy  &= e^{2x} dx\\
 \int{e^y dy} &= \int{e^{2x} dx}\\
-e^y +c_y &= \frac{1}{2} e^{2x} + c_x = e^{2x+ \ln\left(\frac{1}{2}\right)}+c_x\\
+e^y +c_y &= \frac{1}{2} e^{2x} + c_x \\
 \text{Mit }c=c_x-c_y \text{ :}\\
-\Rightarrow y&= 2x+ \ln{\left(\frac{1}{2}\right)}+c
+\Rightarrow y &= \ln{\left(\frac{1}{2}e^{2x} + c\right)} 
 \end{align*}
 \subsection*{b)}$\frac{\text{d}y}{\text{d}x} = \frac{x}{2y}\left(e^{-x}+\frac{y^2}{x^2}\right)$\\
 \begin{align*}
@@ -101,16 +101,16 @@ Ersetze $\frac{\text{d}y}{\text{d}x}$ mit $\frac{\text{d}z}{\text{d}x}\cdot x+z$
 \begin{align*}
 \frac{\text{d}z}{\text{d}x}\cdot x +z&=\frac{e^{-x}}{2z}+\frac{z}{2} &&|-\frac{z}{2}\\
 \Leftrightarrow\frac{\text{d}z}{\text{d}x}\cdot x +\frac{z}{2}&=\frac{e^{-x}}{2z} &&|\cdot z\\
-\Leftrightarrow\frac{\difd z}{\difd x}zx+\frac{z}{2}&=\frac{e^{-x}}{2}
+\Leftrightarrow\frac{\difd z}{\difd x}zx+\frac{z^{2}}{2}&=\frac{e^{-x}}{2}
 \end{align*}
 Beachte:
 \begin{align*}
-\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}&=\frac{1}{2}\left(2\frac{\text{d}z}{\text{d}x}zx+z\right)\\
-&=\frac{\difd z}{\difd x}zx+\frac{z}{2}
+\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}&=\frac{1}{2}\left(2\frac{\text{d}z}{\text{d}x}zx+z^{2}\right)\\
+&=\frac{\difd z}{\difd x}zx+\frac{z^{2}}{2}
 \end{align*}
-Ersetze $\frac{\difd z}{\difd x}zx+\frac{z}{2}$ mit $\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}$:
+Ersetze $\frac{\difd z}{\difd x}zx+\frac{z^{2}}{2}$ mit $\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}$:
 \begin{align*}
-\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}&=\frac{e^{-x}}{z}&&|\cdot 2\\
+\frac{1}{2}\frac{\text{d}\left(z^2\cdot x\right)}{\text{d}x}&=\frac{e^{-x}}{2}&&|\cdot 2\\
 \Leftrightarrow\frac{\difd \left(z^2\cdot x\right)}{\difd x}&=e^{-x}
 \end{align*}
 Dieser Term l"asst sich einfach mit d$x$ integrieren:
