@@ -15,24 +15,231 @@
 
 \usepackage{dsfont}
 
-\theoI{5}
+\theoI{4}
 
 \begin{document}
-\punkteV{5.1}{5.2}{5.3}{5.4}{5.5}
+\punkteV{4.1}{4.2}{4.3}{4.4}{4.5}
 
-\section*{Aufgabe 5.1}
+\section*{Aufgabe 4.1}Sei $\vec{r}=\left(x,y,z\right)^T$, $r=\left|\vec{r}\right|$, $\hat{\vec{r}}=\frac{\vec{r}}{r}$ und $\vec{\nabla}=\left(\partial_x,\partial_y,\partial_z\right)^T$. Zeigen Sie, dass
+\subsection*{a)}$\vec{\nabla}r=\hat{\vec{r}}$
+\begin{align*}
+\vec{\nabla}r&=\hat{\vec{r}}\\
+\mqty(\partial_x\\\partial_y \\\partial_x  )\cdot r&=\mqty(\partial_x\cdot r\\\partial_y\cdot r \\\partial_x\cdot r  )\\
+&=\mqty(\frac{1}{2}\cdot r^{-1}\cdot 2x\\\frac{1}{2}\cdot r^{-1}\cdot 2y\\\frac{1}{2}\cdot r^{-1}\cdot 2z)\\
+&=\mqty(xr^{-1}\\yr^{-1}\\zr^{-1})\\
+&=\mqty(x\\y\\z)\cdot r^{-1}\\
+&=\frac{\vec{r}}{r}\\
+&=\hat{\vec{r}}
+\end{align*}
+
+\subsection*{b)}$\vec{\nabla}f\left(r\right)=\hat{\vec{r}} \ \frac{\text{d}f}{dr}$
+\begin{align*}
+\vec{\nabla}f\left(r\right)&=\hat{\vec{r}} \ \frac{\text{d}f}{dr}\\
+\mqty(\partial_x\\\partial_y \\\partial_x  )f\left(r\right)&=\mqty(\partial_xf\left(r\right)\\\partial_yf\left(r\right) \\\partial_xf\left(r\right)  )\\
+&=\mqty(\frac{\partial fr}{\partial x} \ \frac{\partial r}{\partial r}\\\frac{\partial fr}{\partial y} \ \frac{\partial r}{\partial r}\\\frac{\partial fr}{\partial z} \ \frac{\partial r}{\partial r})\\
+&=\mqty(\frac{\partial fr}{\partial r} \ \frac{\partial r}{\partial x}\\\frac{\partial fr}{\partial r} \ \frac{\partial r}{\partial y}\\\frac{\partial fr}{\partial r} \ \frac{\partial r}{\partial z})\\
+&=\mqty(\frac{\partial fr}{\partial r} \ \frac{x}{r}\\\frac{\partial fr}{\partial r} \ \frac{y}{r}\\\frac{\partial fr}{\partial r} \ \frac{z}{r})\\
+&=\mqty(\frac{\partial fr}{\partial r} \\\frac{\partial fr}{\partial r} \\\frac{\partial fr}{\partial r})\cdot \hat{\vec{r}}\\
+&=\frac{\text{d}f}{\text{d}r}\hat{\vec{r}}
+\end{align*}
+\subsection*{c)}$\text{rot }\vec{r}=\vec{\nabla}\times\vec{r}$
+\begin{align*}
+\mqty(\partial_x\\\partial_y\\\partial_z)\times\mqty(x\\y\\z)&=\mqty(\frac{\partial z}{\partial y}-\frac{\partial y}{\partial z}\\\frac{\partial x}{\partial z}-\frac{\partial z}{\partial x}\\\frac{\partial y}{\partial x}-\frac{\partial x}{\partial y})\\
+&=\mqty(0\\0\\0)
+\end{align*}
+\subsection*{d)}$\text{div }\vec{r}=\vec{\nabla}\cdot\vec{r}$
+\begin{align*}
+\mqty(\partial_x\\\partial_y\\\partial_z)\cdot\mqty(x\\y\\z)&=\frac{\partial x}{\partial x}+\frac{\partial y}{\partial y}+\frac{\partial z}{\partial z}\\
+&=1+1+1\\
+&=3
+\end{align*}
+
+\newpage
+\section*{Aufgabe 4.2}
 
 
 \newpage
-\section*{Aufgabe 5.2}
-
-
+\section*{Aufgabe 4.3}Ein Massenpunkt wird unter dem Winkel $\theta$ "uber der Horizontalen von einer Klippe geworfen.Zum Zeitpunkt $t= 0$ sei der Massenpunkt am Ort $\vec{r}\left(0\right) = \left(0,0,0\right)^\text{T}$ und der Betrag der Geschwindigkeit sei $\left|\vec{v}\left(0\right)\right|=v_0$. Wir nehmen ein viskoses Medium mit Stokesscher Reibung an, indem die Beschleunigung durch$\vec{a}=-k\vec{v}-g\vec{e_z}$ gegeben ist. Durch Integration der Gleichung
+\begin{align*}
+\vec{a}\left(t\right)=\frac{\text{d}}{\text{d}t}\vec{v}\left(t\right)=\frac{\text{d}^2}{\text{d}t^2}\vec{r}\left(t\right)
+\end{align*}
+erhalten Sie zun"achst $\vec{v}\left(t\right)$ und dann $\vec{r}\left(t\right)$. Die jeweiligen Integrationskonstanten sind durch die Vorgabe  $\vec{v}\left(t\right)= v_0\left(\cos \theta,0,\sin\theta\right)^\text{T}$ und $\vec{r}$ festgelegt.
+\subsection*{a)} Bestimmen Sie die Geschwindigkeit des Massenpunktes als Funktion der Zeit.
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+\vec{a}&=-k\vec{v}-g\vec{e_z}\\
+\vec{a}&=\dot{\vec{v}}\\
+\vec{a}&=\frac{\text{d}\vec{v}}{\text{d}t}\\\\
+\text{Substitution} \ \vec{v}=\vec{\phi}\left(t\right)e^{-kt}&=\vec{\phi}e^{-kt}\\
+\dot{\vec{v}}&=\dot{\vec{\phi}}e^{-kt}-k\vec{\phi}e^{-kt}\\\\
+\text{Nach }\dot{\vec{\phi}}\text{ umformen:}\\
+\dot{\vec{v}}&=\dot{\vec{\phi}}e^{-kt}-k\vec{\phi}e^{-kt}&&|+k\vec{\phi}e^{-kt}\\
+\dot{\vec{\phi}}e^{-kt}&=\dot{\vec{v}}+k\vec{\phi}e^{-kt}&&|\dot{\vec{v}}=\vec{a}=-k\vec{v}-g\vec{e_z}\\
+\dot{\vec{\phi}}e^{-kt}&=-k\vec{v}-g\vec{e_z}+k\vec{\phi}e^{-kt}&&|\cdot e^{kt}\\
+\dot{\vec{\phi}}&=-g\vec{e_z}e^{kt}\\\\
+\text{Durch Integration von }\dot{\vec{\phi}}\text{ l"asst sich }\vec{\phi}\text{ berechnen:}\\
+\vec{\phi}&=\int\dot{\vec{\phi}} \ \text{d}t\\
+&=\int\text{d}t-g\vec{e_z}e^{kt}\\
+&=-\frac{g}{k}\vec{e_z}e^{kt}+\vec{\phi_c}\\\\
+\text{Resubstitution} \ \vec{v}\\
+\vec{v}&=\vec{\phi}e^{-kt}\\
+&=\left(-\frac{g}{k}\vec{e_z}e^{kt}+\vec{\phi_c}\right)e^{-kt}\\
+&=-\frac{g}{k}+\vec{\phi_c}e^{-kt}\\\\\\\\
+\text{Nun muss nur noch} \ \vec{\phi_c} \ \text{bestimmt werden.}\\\\
+\text{Bestimmung von} \ \vec{\phi_c} \ \text{durch Startbedingung} \ \left|\vec{v}\left(0\right)\right|&=v_0\\
+\vec{v}\left(0\right)&=\mqty(\phi_c^xe^{-0k}\\\phi_c^ye^{-0k}\\\phi_c^ze^{-0k}-\frac{g}{k})\\
+&=\mqty(\phi_c^x\\\phi_c^y\\\phi_c^z-\frac{g}{k})=\mqty(v_0\cos\theta\\0\\v_0\sin\theta)\\
+&\Rightarrow\mqty(\phi_c^x\\\phi_c^y\\\phi_c^z)=\mqty(v_0\cos\theta\\0\\v_0\sin\theta+\frac{g}{k})\\\\
+\text{Somit ergibt sich f"ur} \ \vec{v}\left(t\right)\text{:}\\
+\vec{v}\left(t\right)&=\mqty(v_0\cdot e^{-kt}\cos\theta\\0\\\left(v_0\sin\theta+\frac{g}{k}\right)e^{-kt}-\frac{g}{k})
+\end{align*}
+\endgroup
 \newpage
-\section*{Aufgabe 5.3}
-
-
+\subsection*{b)}Bestimmen Sie die Bahnkurve $\vec{r}\left(t\right)$ des Massenpunktes.\\\\
+Die Bahnkurve l"asst sich durch einfaches Integrieren der Geschwindigkeit berechnen.\\
+Aus "ubersichtsgr"unden werden wir die $x$, $y$ und $z$ Komponenten einzeln integrieren.\\\\
+F"ur $x$:
+\begin{align*}
+r^x\left(t\right)&=\int\text{d}t \ v^x\\
+&=\int\text{d}t \ v_0\cdot e^{-kt}\cdot \cos\theta\\
+&=-\frac{v_0}{k} e^{-kt}\cdot \cos\theta+r_c^x
+\end{align*}
+F"ur $y$:
+\begin{align*}
+r^y\left(t\right)&=\int\text{d}t \ v^y\\
+&=\int\text{d}t \ 0\\
+&=r_c^y
+\end{align*}
+F"ur $z$:
+\begin{align*}
+r^z\left(t\right)&=\int\text{d}t \ v^z\\
+&=\int\text{d}t \ \left(v_0\sin\theta +\frac{g}{k}\right)e^{-kt}-\frac{g}{k}\\
+&=-\frac{v_0\sin\theta +\frac{g}{k}}{k}e^{-kt}-\frac{g}{k}t+r_c^z
+\end{align*}
+Als Zwischenergebnis f"ur $\vec{r}\left(t\right)$ ergibt sich:
+\begin{align*}
+\vec{r}\left(t\right)=\mqty(-\frac{v_0}{k} e^{-kt}\cdot \cos\theta+r_c^x \\ r_c^y \\ -\frac{v_0\sin\theta +\frac{g}{k}}{k}e^{-kt}-\frac{g}{k}t+r_c^z )
+\end{align*}
+Nun muss muss $\vec{r_c}$ nur noch an die Anfangsbedingungen angepasst werden:
+\begin{align*}
+\vec{r}\left(0\right)&=\mqty(-\frac{v_0}{k} e^{-0k}\cdot \cos\theta+r_c^x \\ r_c^y \\ -\frac{v_0\sin\theta +\frac{g}{k}}{k}e^{-0k}-\frac{g}{k}\cdot 0+r_c^z )=\mqty(0\\0\\0)\\
+&\Rightarrow\mqty(r_c^x\\r_c^y\\r_c^z)=\mqty(\frac{v_0}{k}\cdot \cos\theta\\0\\\frac{v_0\sin\theta +\frac{g}{k}}{k})
+\end{align*}
+Somit ergibt sich f"ur $\vec{r}\left(t\right)$:
+\begin{align*}
+\vec{r}\left(t\right)&=\mqty(-\frac{v_0}{k} e^{-kt}\cdot \cos\theta+\frac{v_0}{k}\cdot \cos\theta \\ 0 \\ -\frac{v_0\sin\theta +\frac{g}{k}}{k}e^{-kt}-\frac{g}{k}t+\frac{v_0\sin\theta +\frac{g}{k}}{k} )\\\\
+\text{Vereinfacht ergibt dies:}\\
+\vec{r}\left(t\right)&=\mqty(\left(1-e^{-kt}\right)\frac{v_0}{k}\cdot \cos\theta\\0\\\left(1-e^{-kt}\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k}t)
+\end{align*}
 \newpage
-\section*{Aufgabe 5.4}
+\subsection*{c)} Zeigen Sie, dass der Massenpunkt im Limes $t$ $\rightarrow$ $\infty$ eine endliche Grenzgeschwindigkeit erreicht und berechnen Sie deren Betrag. Wie weit kommt der Massenpunkt maximal in $x^1$-Richtung? ($x^1$-Richtung entspricht hier $x$-Richtung)\\
+Als erstes berechnen wir den Vektor im Limes $t$ $\rightarrow$ $\infty$:
+\begin{align*}
+\lim_{t\rightarrow\infty}\vec{v}\left(t\right)&=\lim_{t\rightarrow\infty}\mqty(v_0\cdot e^{-kt}\cos\theta\\0\\\left(v_0\sin\theta+\frac{g}{k}\right)e^{-kt}-\frac{g}{k})\\\\
+\text{Da} \ \lim_{t\rightarrow\infty}e^{-kt}=0 \ \text{:}&\\
+\lim_{t\rightarrow\infty}\vec{v}\left(t\right)&=\mqty(0\\0\\-\frac{g}{k})\\\\
+\text{Nun berechnen wir den Betrag der Geschwindgkeit:}&\\
+\left|\lim_{t\rightarrow\infty}\vec{v}\left(t\right)\right|&=\left|\mqty(0\\0\\-\frac{g}{k})\right|\\
+\left|\lim_{t\rightarrow\infty}\vec{v}\left(t\right)\right|&=\sqrt{\left(\frac{g}{k}\right)^2}\\
+\left|\lim_{t\rightarrow\infty}\vec{v}\left(t\right)\right|&=\frac{g}{k}
+\end{align*}
+Betrachten wir die zur"uckgelegte Strecke in $x$-Richtung im Limes $t$ $\rightarrow$ $\infty$:
+\begin{align*}
+\lim_{t\rightarrow\infty}r^x\left(t\right)&=\lim_{t\rightarrow\infty}\left(1-e^{-kt}\right)\frac{v_0}{k}\cdot \cos\theta\\
+\lim_{t\rightarrow\infty}r^x\left(t\right)&=\frac{v_0}{k}\cdot \cos\theta
+\end{align*}
+Dies ist die in $x$-Richtung maximal zur"uckgelegte Entfernung.
+\newpage
+\subsection*{d)} Zeigen Sie: Der h"ochste Bahnpunkt wird nach der Zeit
+\begin{align*}
+T=\frac{1}{k}\ln\left(1+\frac{v_0k\sin\theta}{g}\right)
+\end{align*}
+erreicht.\\\\
+Der h"ochste Bahnpunkt h"angt nur von der $z$-Richtung ab. Da wir die Bahnkurve $\vec{r}\left(t\right)$ betrachten, m"ussen wir nur das Maximum der $z$ Richtung berechnen. An dieser Stelle ist $v^z\left(t\right)=0$:
+\begin{align*}
+v^z\left(t\right)&=0\\
+\left(v_0\sin\theta +\frac{g}{k}\right)e^{-kt}-\frac{g}{k}&=0&&|+\frac{g}{k}\\
+\left(v_0\sin\theta +\frac{g}{k}\right)e^{-kt}&=\frac{g}{k}&&|\cdot \frac{1}{v_0\sin\theta +\frac{g}{k}}\\
+e^{-kt}&=\frac{g}{k\left(v_0\sin\theta +\frac{g}{k}\right)}&&|\cdot e^{kt}\cdot\frac{k\left(v_0\sin\theta +\frac{g}{k}\right)}{g} \\
+e^{kt}&=\frac{k\left(v_0\sin\theta +\frac{g}{k}\right)}{g}&&|\text{Vereinfachen}\\
+e^{kt}&=\frac{kv_0\sin\theta}{g}+1&&|\text{nach} \ t \ \text{aufl"osen} \ \Rightarrow \ln\\
+\ln\left(e^{kt}\right)&=\ln\left(\frac{kv_0\sin\theta}{g}+1\right)&&|\cdot\frac{1}{k}\\
+t&=\frac{1}{k}\ln\left(1+\frac{v_0k\sin\theta}{g}\right)
+\end{align*}
+Dies ist der zu zeigende Term.
+\newpage
+\subsection*{e)} Zeigen Sie: Die H"ohe am Scheitelpunkt der Bahn ist
+\begin{align*}
+H=\frac{v_0\sin\theta}{k}-\frac{g}{k^2}\ln\left(1+\frac{v_0k\sin\theta}{g}\right)\text{.}
+\end{align*}\\
+Setzen wir nun den in \textbf{d)} berechneten Zeitpunkt f"ur $r^z\left(t\right)$ ein, so bekommen wir die maximale H"ohe der Bahnkurve, diese ist dann auch die H"ohe des Scheitelpunktes:
+\begin{align*}
+r^z\left(t\right)&=\left(1-e^{-kt}\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k}t
+\end{align*}
+Da der Term durch einsetzen von $T$ noch viel gr"o"ser und un"ubersichtlicher wird, wollen wir zuerst nur  $e^{-kT}$ und $\frac{g}{k}T$ betrachten:\\\\
+F"ur $e^{-kT}$:
+\begin{align*}
+e^{-kT}&=e^{-k\cdot\frac{1}{k}\ln\left(1+\frac{v_0k\sin\theta}{g}\right)}\\
+&=e^{-\ln\left(1+\frac{v_0k\sin\theta}{g}\right)}\\
+&=\frac{1}{e^{\ln\left(1+\frac{v_0k\sin\theta}{g}\right)}}\\
+&=\frac{1}{1+\frac{v_0k\sin\theta}{g}}\\
+&=\frac{1+\frac{v_0k\sin\theta}{g}}{1+\frac{v_0k\sin\theta}{g}}+\frac{-\frac{v_0k\sin\theta}{g}}{1+\frac{v_0k\sin\theta}{g}}&&|\text{Hinteren Summanden mit} \ \frac{\frac{g}{k}}{\frac{g}{k}} \ \text{erweitern.}\\
+&=1-\frac{\frac{g}{k}\cdot\frac{k}{g}v_0\sin\theta}{\frac{g}{k}+\frac{g}{k}\cdot\frac{k}{g}v_0\sin\theta}&&|\text{k"urzen!}\\
+&=1-\frac{v_0\sin\theta}{\frac{g}{k}+v_0\sin\theta}
+\end{align*}
+F"ur $\frac{g}{k}T$:
+\begin{align*}
+\frac{g}{k}T&=\frac{g}{k}\cdot\frac{1}{k}\ln\left(1+\frac{v_0k\sin\theta}{g}\right)\\
+&=\frac{g}{k^2}\cdot\ln\left(1+\frac{v_0k\sin\theta}{g}\right)
+\end{align*}
+Setzen wir die zwei berechneten Gleichungen nun in $r^z$ ein so ergibt dies:
+\begin{align*}
+r^z\left(T\right)&=\left(1-\left(1-\frac{v_0\sin\theta}{\frac{g}{k}+v_0\sin\theta}\right)\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k^2}\cdot\ln\left(1+\frac{v_0k\sin\theta}{g}\right)\\
+r^z\left(T\right)&=\left(\frac{v_0\sin\theta}{\frac{g}{k}+v_0\sin\theta}\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k^2}\cdot\ln\left(1+\frac{v_0k\sin\theta}{g}\right)\\
+r^z\left(T\right)&=\frac{v_0\sin\theta}{k}-\frac{g}{k^2}\ln\left(1+\frac{v_0k\sin\theta}{g}\right)
+\end{align*}
+Dies ist der zu zeigende Term.
+\newpage
+\subsection*{f)}Zeigen Sie: F"ur kleine Reibung ($k$ $\rightarrow$ 0) sind die Geschwindigkeit $\vec{v}\left(t\right)$ und der Ortsvektor $\vec{r}\left(t\right)$ ann"ahernd gegeben durch
+\begin{align*}
+\vec{v}\left(t\right)=\vec{v_0}-gt\vec{e_z}\text{,}&&\vec{r}\left(t\right)=t\vec{v_0}-\frac{1}{2}gt^2\vec{e_z}\text{.}
+\end{align*}
+F"ur $\vec{v}\left(t\right)$ haben wir in \textbf{a)} berechnet:
+\begin{align*}
+\vec{v}\left(t\right)&=\mqty(v_0\cdot e^{-kt}\cos\theta\\0\\\left(v_0\sin\theta+\frac{g}{k}\right)e^{-kt}-\frac{g}{k})\\\\
+\vec{v}\left(0\right)&=\mqty(v_0\cos\theta\\0\\v_0\sin\theta)
+\end{align*}
+Im Limes der Reibung ($k$ $\rightarrow$ 0) bedeutet dies:
+\begin{align*}
+\lim_{k\rightarrow 0}\vec{v}\left(t\right)&=\lim_{k\rightarrow 0}\mqty(v_0\cdot e^{-kt}\cos\theta\\0\\\left(v_0\sin\theta+\frac{g}{k}\right)e^{-kt}-\frac{g}{k})\\
+\text{Da f"ur} \ k \ \rightarrow \ 0\text{,} &\  e^{-kt} \ \text{in die Taylorreihe} \ 1-kt+\frac{1}{2}k^2t^2 \ \text{entwickelt werden kann, gilt:} \\
+\lim_{k\rightarrow 0}\vec{v}\left(t\right)&=\lim_{k\rightarrow 0}\mqty(v_0\cdot \left(1-kt+\frac{1}{2}k^2t^2\right)\cdot\cos\theta\\0\\\left(v_0\sin\theta+\frac{g}{k}\right)\cdot\left(1-kt+\frac{1}{2}k^2t^2\right)-\frac{g}{k})\\
+&=\lim_{k\rightarrow 0}\mqty(v_0\cdot \left(1-kt+\frac{1}{2}k^2t^2\right)\cdot\cos\theta\\0\\v_0\sin\theta\cdot\left(1-kt+\frac{1}{2}k^2t^2\right) )+\lim_{k\rightarrow 0}\mqty(0\\0\\\frac{g}{k}\cdot\left(1-kt+\frac{1}{2}k^2t^2\right)-\frac{g}{k})\\
+&=\mqty(v_0\cdot\cos\theta\\0\\v_0\cdot\sin\theta)+\lim_{k\rightarrow 0}\mqty(0\\0\\\frac{g}{k}-kt\cdot\frac{g}{k}+\frac{1}{2}k^2t^2\cdot\frac{g}{k}-\frac{g}{k})\\
+&=\mqty(v_0\cdot\cos\theta\\0\\v_0\cdot\sin\theta)+\lim_{k\rightarrow 0}\mqty(0\\0\\-tg+\frac{1}{2}kt^2\cdot g)\\
+&=\mqty(v_0\cdot\cos\theta\\0\\v_0\cdot\sin\theta)+\mqty(0\\0\\-tg)\\
+&=\vec{v_0}-gt\vec{e_z}
+\end{align*}\\
+\newpage
+F"ur $\vec{r}\left(t\right)$ haben wir in \textbf{b)} berechnet:
+\begin{align*}
+\vec{r}\left(t\right)&=\mqty(\left(1-e^{-kt}\right)\frac{v_0}{k}\cdot \cos\theta\\0\\\left(1-e^{-kt}\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k}t)
+\end{align*}
+Im Limes der Reibung ($k$ $\rightarrow$ 0) bedeutet dies:
+\begin{align*}
+\lim_{k\rightarrow 0}\vec{r}\left(t\right)&=\lim_{k\rightarrow 0}\mqty(\left(1-e^{-kt}\right)\frac{v_0}{k}\cdot \cos\theta\\0\\\left(1-e^{-kt}\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k}t)\\
+\text{Da f"ur} \ k \ \rightarrow \ 0\text{,} &\  e^{-kt} \ \text{in die Taylorreihe} \ 1-kt+\frac{1}{2}k^2t^2 \ \text{entwickelt werden kann, gilt:} \\
+\lim_{k\rightarrow 0}\vec{r}\left(t\right)&=\lim_{k\rightarrow 0}\mqty(\left(1-\left(1-kt+\frac{1}{2}k^2t^2\right)\right)\frac{v_0}{k}\cdot \cos\theta\\0\\\left(1-\left(1-kt+\frac{1}{2}k^2t^2\right)\right)\frac{v_0\sin\theta +\frac{g}{k}}{k}-\frac{g}{k}t)\\
+&=\lim_{k\rightarrow 0}\mqty(\left(kt-\frac{1}{2}k^2t^2\right)\frac{v_0}{k}\cdot\cos\theta\\0\\\left(kt-\frac{1}{2}k^2t^2\right)\frac{v_0\sin\theta+\frac{g}{k}}{k}-\frac{g}{k}t)\\
+&=\lim_{k\rightarrow 0}\mqty(tv_0\cos\theta-\frac{1}{2}kt^2 v_0\cos\theta\\0\\ tv_0 \sin\theta +\frac{g}{k}t-\frac{1}{2}kt^2\left(v_0\sin\theta+\frac{g}{k}\right)-\frac{g}{k}t)\\
+&=\mqty(tv_0\cos\theta\\0\\tv_0 \sin\theta)+\lim_{k\rightarrow 0}\mqty(\frac{1}{2}kt^2 v_0\cos\theta\\0\\-\frac{1}{2}kt^2\left(v_0\sin\theta+\frac{g}{k}\right))\\
+&=\mqty(tv_0\cos\theta\\0\\tv_0 \sin\theta)+\mqty(0\\0\\-\frac{1}{2}gt^2)+\lim_{k\rightarrow 0}\mqty(\frac{1}{2}kt^2 v_0\cos\theta\\0\\-\frac{1}{2}kt^2v_0\sin\theta)\\
+&=\mqty(tv_0\cos\theta\\0\\tv_0 \sin\theta)+\mqty(0\\0\\-\frac{1}{2}gt^2)\\
+&=t\vec{v_0}-\frac{1}{2}gt^2\vec{e_z}
+\end{align*}
+\newpage
+\section*{Aufgabe 4.4}
 Wir bestimmen eine Stammfunktion von 
 	\[
 		f(x) = \frac{1}{a+bx+cx^2}, \ \ \ \ \ b^{2} > 4ac.
@@ -69,7 +276,7 @@ Somit erhalten wir eine Stammfunktion von $f$ durch:
 
 
 \newpage
-\section*{Aufgabe 5.5}
+\section*{Aufgabe 4.5}
 
 
 
