@@ -57,6 +57,67 @@
 \newpage
 \section*{Aufgabe 4.2}
 
+a)
+
+Das Kraftfeld ist offensichtlich konservativ, da die einzelnen Komponenten des Kraftfelds zueinander symmetrisch sind, sodass man zwei Komponenten vertauschen könnte, ohne dass sich das Kraftfeld ändern würde. Dies impliziert offensichtlich, dass die Rotation des Kraftfeldes $0$ sein muss, sodass das Kraftfeld konservativ ist.
+
+%Beim Potential bin ich mir nicht sicher
+Im folgenden sei $r = |\vec{r}|$.
+
+Das Potential $V(\vec{r})$ wird berechnet, indem wir das Linienintegral zu $\vec{r}$ berechnen.
+Da das Kraftfeld konservativ ist, können wir einen beliebigen Pfad von einem Punkt zu einem anderen Punkt wählen, sodass die verrichtete Arbeit genau die Potentialdifferenz ist. Somit können wir unseren Pfad, über den wir integrieren, einfach entlang von $\vec{r}$ wählen. Dann gilt:
+
+\begin{align}
+V(\vec{r}) &= - \int^{\vec{r}} \vec{F} \cdot d \vec{r'} \\
+&= - \int^{\vec{r}} F_x d r'_x + \int^{\vec{r}} F_y d r'_y + \int^{\vec{r}} F_z d r'_z 
+\end{align}
+
+Da für unser Kraftfeld $F_x = F_x = F_z =: F$ gilt, können wir das wie folgt umformen:
+
+\begin{align}
+V(\vec{r}) &= - \int^{r} F dr' \\
+&= - \int^{r} \frac{c e^{-\mu r'}}{r'^{2}} (1 + \mu r') dr' \\
+&= \frac{c e^{- \mu r}}{r} + C
+\end{align}
+
+Für ein spezifisches Potential kann man die Integrationskonstante $C$ einfach auf irgendeinen Wert (bspw. $0$) festlegen.
+
+
+b)
+
+Wir überprüfen zunächst die $x$-Komponente der Rotation des Kraftfeldes:
+
+\begin{align}
+(\vec{\nabla} \times \vec{F})_x &= \frac{\partial}{\partial y} \frac{y c}{y^{2} + z^{2}} - \frac{\partial}{\partial z} \frac{-z c}{y^{2} + z^{2}} \\
+&= \frac{c}{y^{2} + z^{2}} + \frac{2 c y^{2}}{(y^{2} + z^{2})^{2}} + \frac{c}{y^{2} + z^{2}} + \frac{2 c z^{2}}{(y^{2} + z^{2})^{2}} \\
+&= \frac{2 c}{y^{2} + z^{2}} \left( 1 + \frac{y^{2} + z^{2}}{y^{2} + z^{2}} \right) \\
+&= \frac{4 c}{y^{2} + z^{2}}
+\end{align}
+
+Für alle $c \neq 0$ ist dies offensichtlich ungleich $0$, sodass das Kraftfeld nicht konservativ ist. (Wenn $c=0$, kann man einfach sagen $V(\vec{r}) = 0$).
+
+c)
+
+Damit ein Kraftfeld $\vec{F} = \vec{a}(\vec{b} \cdot \vec{r})$ konservativ ist, muss gelten:
+
+\begin{align}
+0 &= \vec{\nabla} \times \vec{F}
+\end{align}
+
+Wir betrachten zunächst, was gelten muss, damit die $x$-Komponente von $\vec{\nabla} \times \vec{F}$ gleich $0$ ist:
+
+\begin{align}
+0 &= (\vec{\nabla} \times \vec{F})_x \\
+\Leftrightarrow 0 &= \frac{\partial}{\partial y} a_z (\vec{b} \cdot \vec{r}) - \frac{\partial}{\partial z} a_y (\vec{b} \cdot \vec{r}) \\
+\Leftrightarrow 0 &= a_z b_y - a_y b_z
+\end{align}
+
+Analog kann man so für die anderen Komponenten vorgehen. Im Endeffekt kann man dann leicht sehen, dass die drei Gleichungen äquivalent zu der Folgenden Bedingung sind:
+
+$$
+\vec{a} \times \vec{b} = 0
+$$
+
 
 \newpage
 \section*{Aufgabe 4.3}Ein Massenpunkt wird unter dem Winkel $\theta$ "uber der Horizontalen von einer Klippe geworfen.Zum Zeitpunkt $t= 0$ sei der Massenpunkt am Ort $\vec{r}\left(0\right) = \left(0,0,0\right)^\text{T}$ und der Betrag der Geschwindigkeit sei $\left|\vec{v}\left(0\right)\right|=v_0$. Wir nehmen ein viskoses Medium mit Stokesscher Reibung an, indem die Beschleunigung durch$\vec{a}=-k\vec{v}-g\vec{e_z}$ gegeben ist. Durch Integration der Gleichung
@@ -277,6 +338,39 @@ Somit erhalten wir eine Stammfunktion von $f$ durch:
 
 \newpage
 \section*{Aufgabe 4.5}
+
+a) 
+
+System von DGLs erster Ordnung:
+
+\begin{align}
+\dot{z}(t) &= a x(t) + b y(t) + c z(t) \\
+y(t) &= \dot{x}(t) \\
+z(t) &= \dot{y}(t)
+\end{align}
+
+b)
+
+Als Matrixschreibweise:
+
+$$
+\frac{d}{dt}\vec{r}(t) = \begin{pmatrix}
+\dot{x} \\
+\ddot{x} \\
+\dddot{x}
+\end{pmatrix} = \begin{pmatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+a & b & c
+\end{pmatrix} \cdot \begin{pmatrix}
+x \\
+\dot{x} \\
+\ddot{x}
+\end{pmatrix} = M \cdot \vec{r}(t)
+$$
+
+
+
 
 
 
