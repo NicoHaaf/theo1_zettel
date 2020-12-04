@@ -1,0 +1,72 @@
+\documentclass{theozettel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=20mm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{compat=1.16}
+
+\usepackage{dsfont}
+
+\theoI{5}
+
+\begin{document}
+\punkteV{4.1}{4.2}{4.3}{4.4}{4.5}
+
+\section*{Aufgabe 5.1}
+
+
+
+
+\section*{Aufgabe 5.2}
+
+
+
+
+\section*{Aufgabe 5.3}
+
+
+
+
+\section*{Aufgabe 5.4}
+
+Sei $\Sigma$ die vom vorgegebenen Rechteck eingeschlossene Fläche und $R$ der Rand dieser Fläche, über den beim Kurvenintegral integriert wird.
+
+Zunächst wird das Kurvenintegral evaluiert. Da wir über das vorgegebene Rechteck integrieren, bei dessen Kanten sich jeweils nur eine Komponente ändert, gilt:
+
+\begin{align}
+\oint_R \vec{F} \cdot d \vec{s} &= \int_0^{1} F_x(s,0,0) ds + \int_0^{1} F_y(1,s,0) ds + \int_1^{0} F_x(s,1,0) ds + \int_1^{0} F_y(0,s,0) ds \\
+&= \int_0^{1} F_x(s,0,0) - F_x(s,1,0) ds + \int_0^{1} F_y(1,s,0) - F_y(0,s,0) ds \\
+&=  \int_0^{1} 2s^{2} - (2s^{2} - 3) ds + \int_0^{1} 0-0 ds \\
+&= 3
+\end{align}
+
+Nach dem Satz von Stokes sollte dies gleich dem folgenden Flächenintegral sein:
+
+$$
+\int_\Sigma (\vec{\nabla} \times \vec{F}) \cdot d \vec{f}
+$$
+
+Da die Fläche in der $xy$-Ebene liegt, interessiert uns nur der Anteil von $(\vec{\nabla} \times \vec{F})$, der senkrecht dazu, also in $z$-Richtung ausgerichtet ist. Dieser ist:
+
+$$
+(\vec{\nabla} \times \vec{F})_z = \frac{\partial}{\partial x} 4yz - \frac{\partial}{\partial y} (2x^{2} - 3y) = 3
+$$
+
+Die Integration über die infinitesimalen Flächenelemente kann nun so aufgelößt werden, dass man zunächst über $x$ und dann über $y$ integriert:
+
+$$
+\int_\Sigma (\vec{\nabla} \times \vec{F}) \cdot d \vec{f} = \int_0^{1}  \int_0^{1} 3\ dx\ dy = 3
+$$
+
+Somit stimmt das Ergebnis überein und das Beispiel widerlegt den Satz von Stokes nicht.
+
+
+\end{document}
