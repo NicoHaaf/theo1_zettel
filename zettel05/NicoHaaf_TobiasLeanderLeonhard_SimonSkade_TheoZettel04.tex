@@ -18,9 +18,119 @@
 \theoI{5}
 
 \begin{document}
-\punkteV{4.1}{4.2}{4.3}{4.4}{4.5}
+\punkteV{5.1}{5.2}{5.3}{5.4}{5.5}
 
-\section*{Aufgabe 5.1}
+\section*{Aufgabe 5.1} Berechnen Sie die Taylorreihen der folgenden Funktionen um den Punkt $x_0$:\\
+Zur Berechnung der Taylorreihe benutzen wir folgende Formel:
+\begin{align*}
+f\left(x\right)&=\frac{f^{\left(0\right)}\left(x_0\right)}{0!}\left(x-x_0\right)^0+\frac{f^{\left(1\right)}\left(x_0\right)}{1!}\left(x-x_0\right)^1+\frac{f^{\left(2\right)}\left(x_0\right)}{2!}\left(x-x_0\right)^2+...+\frac{f^{\left(n\right)}\left(x_0\right)}{n!}\left(x-x_0\right)^n\\
+f\left(x\right)&=\sum_{n=0}^\infty\frac{f^{\left(n\right)}\left(x_0\right)}{n!}\left(x-x_0\right)^n
+\end{align*}
+\subsection*{a)}$f\left(x\right)=\frac{1}{1-x}, \ x_0=0$
+\begin{align*}
+f\left(x\right)&=\frac{1}{1-x}\\
+f'\left(x\right)&=\frac{1}{\left(1-x\right)^2}\\
+f''\left(x\right)&=\frac{2}{\left(1-x\right)^3}\\
+f'''\left(x\right)&=\frac{6}{\left(1-x\right)^4}\\
+\text{Systematik der Ableitungen erkannt:}f^{\left(n\right)}\left(x\right)&=\frac{n!}{\left(1-x\right)^{n+1}}
+\end{align*}
+Einsetzen der n-ten Ableitung an der Stelle $x_0$ in die Summenformel:
+\begin{align*}
+f\left(x\right)&=\sum_{n=0}^\infty\frac{\frac{n!}{\left(1-x_0\right)^{n+1}}}{n!}\left(x-x_0\right)^n\\
+&=\sum_{n=0}^\infty\left(1-x_0\right)^{n+1}\left(x-x_0\right)^n\\
+x_0=0\Rightarrow &=\sum_{n=0}^\infty\left(1\right)^{n+1}\left(x\right)^n\\
+f\left(x\right)\big|_{x_0=0}=\frac{1}{1-x}\big|_{x_0=0}&=\sum_{n=0}^\infty x^n
+\end{align*}
+\subsection*{b)}$f\left(x\right)=\sin x, \ x_0=\frac{\pi}{2}$
+\begin{align*}
+f\left(x\right)&=\sin x\\
+f'\left(x\right)&=\cos x\\
+f''\left(x\right)&=-\sin x\\
+f'''\left(x\right) &= -\cos x\\
+f''''\left(x\right) &= \sin x
+\end{align*}
+Da $x_0=\frac{\pi}{2}$ und $\cos\frac{\pi}{2}=0$, müssen nur die Ableitungen mit $\pm\sin x$ berücksichtigt werden, dies ist jeder zweite Ableitung, dort ergibt sich durch den Vorzeichenwechsel:
+\begin{align*}
+n\in\mathbb{N}_0\\
+f^{\left(2n\right)}\left(x\right)&=\left(-1\right)^n\sin x
+\end{align*}
+Nun setzen wir $f^{\left(2n\right)}\left(x\right)$ an der Stelle $x_0$ in das Schema ein, dabei muss $n$ zu $2n$ angepasst werden:
+\begin{align*}
+f\left(x\right)\big|_{x_0=\frac{\pi}{2}}&=\sum_{n=0}^\infty \frac{\left(-1\right)^n\sin \frac{\pi}{2}}{\left(2n\right)!}\left(x-\frac{\pi}{2}\right)^{2n}\\
+f\left(x\right)\big|_{x_0=\frac{\pi}{2}}=\sin x\big|_{x_0=\frac{\pi}{2}}&=\sum_{n=0}^\infty \frac{\left(-1\right)^n}{\left(2n\right)!}\left(x-\frac{\pi}{2}\right)^{2n}
+\end{align*}
+\subsection*{c)}$f\left(x\right)=\arctan x, \ x_0=0$
+\begin{align*}
+f^{\left(0\right)}\left(x\right)&=\arctan x\\
+f^{\left(1\right)}\left(x\right) &= \frac{1}{1+x^2}\\
+f^{\left(2\right)}\left(x\right)&=-\frac{2x}{\left(1+x^2\right)^2}\\
+f^{\left(3\right)}\left(x\right)&=-\frac{2\left(1-3x^2\right)}{\left(x^2+1\right)^3}\\
+f^{\left(4\right)}\left(x\right)&= -\frac{24x\left(x^2-1\right)}{\left(1+x^2\right)^4}\\
+f^{\left(5\right)}\left(x\right)&=\frac{24\left(5x^4-10x^2+1\right)}{\left(1+x^2\right)^5}\\
+f^{\left(6\right)}\left(x\right)&=-\frac{240x\left(3x^4-10x^2+3\right)}{\left(1+x^2\right)^6}\\
+f^{\left(7\right)}\left(x\right)&=-\frac{720\left(1-7x^6+35x^4-21x^2\right)}{\left(1+x^2\right)^7}
+\end{align*}
+Nun werten wir diese Ableitungen an der Stelle $x_0=0$ aus und setzen $g^{\left(0\right)}\left(x\right)=f^{\left(1\right)}\left(x\right)$:
+\begin{align*}
+f^{\left(0\right)}\left(x\right)&=0\\
+g^{\left(0\right)}\left(x\right)=f^{\left(1\right)}\left(x\right)&= 1\\
+g^{\left(1\right)}\left(x\right)=f^{\left(2\right)}\left(x\right)&=0\\
+g^{\left(2\right)}\left(x\right)=f^{\left(3\right)}\left(x\right)&=-2\\
+g^{\left(3\right)}\left(x\right)=f^{\left(4\right)}\left(x\right)&= 0\\
+g^{\left(4\right)}\left(x\right)=f^{\left(5\right)}\left(x\right)&=24\\
+g^{\left(5\right)}\left(x\right)=f^{\left(6\right)}\left(x\right)&=0\\
+g^{\left(6\right)}\left(x\right)=f^{\left(7\right)}\left(x\right)&=-720
+\end{align*}
+Hier lässt sich ab $g^{\left(0\right)}\left(x\right)$ ein System erkennen:\\
+$n\in\mathbb{N}_0$
+\begin{align*}
+g^{\left(2n\right)}\left(x\right)\big|_{x_0=0}=\left(-1\right)^n\left(2n\right)!
+\end{align*}
+Dies lässt sich in die Formel für die Taylorreihe einsetzen:
+\begin{align*}
+g(x)\big|_{x_0=0}&=\frac{g^{\left(0\right)}\left(0\right)}{0!}x^0+\frac{g^{\left(2\right)}\left(0\right)}{2!}x^2+\frac{g^{\left(4\right)}\left(0\right)}{4!}x^4+...+\frac{g^{\left(2n\right)}\left(0\right)}{\left(2n\right)!}x^{2n}\\
+g(x)\big|_{x_0=0}&=\sum_{n=0}^\infty\frac{g^{\left(2n\right)}\left(0\right)}{\left(2n\right)!}x^{2n}\\
+&=\sum_{n=0}^\infty\frac{\left(-1\right)^n\left(2n\right)!}{\left(2n\right)!}x^{2n}\\
+&=\sum_{n=0}^\infty\left(-1\right)^nx^{2n}
+\end{align*}
+Da $\frac{1}{1+x^2}$ die Ableitung von $\arctan x$ ist, ist das Integral der Taylorreihe von $\frac{1}{1+x^2}$ die Taylorreihe von $\arctan x$. Wir dürfen auch erst das Integral berechnen und dann summieren (vgl. Hinweis):
+\begin{align*}
+\arctan x\big|_{x_0=0}&=\int\text{d}x \ \sum_{n=0}^\infty\left(-1\right)^nx^{2n}\\
+&=\sum_{n=0}^\infty\int\text{d}x \ \left(-1\right)^nx^{2n}\\
+&=\sum_{n=0}^\infty\frac{\left(-1\right)^n}{2n+1}x^{2n+1}+c
+\end{align*}
+Nun müssen wir nur noch $c$ anpassen, dabei muss gelten:\\
+\begin{align*}
+\arctan 0= 0=\sum_{n=0}^\infty\frac{\left(-1\right)^n}{2n+1}0^{2n+1}+c\\
+\Rightarrow c=0
+\end{align*}
+Somit ergibt sich für $\arctan x$ als Taylorreihe, entwickelt um die Stelle $x_0=0$:
+\begin{align*}
+\arctan x=\sum_{n=0}^\infty\frac{\left(-1\right)^n}{2n+1}x^{2n+1}
+\end{align*}
+\subsection*{d)}Schätzen Sie ab, wie viele Terme die Sinusreihe um $x_0=0$ Sie benötigen, um den Wert von $\sin\left(0.1\right)$ auf $10^{-5}$ genau zu erhalten. Welcher Wert ergibt sich dabei?\\\\
+Die Ableitungen von $\sin x$ wurden in \textbf{b)} bereits berechnet, da dieses mal aber bei $x_0=0$ ausgewertet wird, fallen die $\pm\sin x$ Ableitungen weg und die $\pm\cos x$ Ableitungen bleiben bestehen: 
+\begin{align*}
+n\in\mathbb{N}_0\\
+f^{\left(2n+1\right)}\left(x\right)&=\left(-1\right)^n\cos x
+\end{align*}
+Nun setzen wir $f^{\left(2n+1\right)}\left(x\right)$ an der Stelle $x_0$ in das Schema ein, dabei muss $n$ zu $2n+1$ angepasst werden:
+\begin{align*}
+f\left(x\right)&=\sum_{n=0}^\infty \frac{\left(-1\right)^n\cos x_0}{\left(2n+1\right)!}\left(x-x_0\right)^{2n+1}\\
+f\left(x\right)\big|_{x_0=0}&=\sum_{n=0}^\infty \frac{\left(-1\right)^n}{\left(2n+1\right)!}\left(x\right)^{2n+1}
+\end{align*}
+Entwickelt man nun die Taylorreihe für die ersten Polynome ergibt dies:
+\begin{align*}
+f\left(x\right)\big|_{x_0=0}&=x-\frac{1}{3!}x^3+\frac{1}{5!}x^5
+\end{align*}
+Berechnet man hiermit den Wert von $x=0.1$ ergibt dies bereits bei $x-\frac{1}{3!}x^3$:
+\begin{align*}
+\sin\left(0.1\right)&\simeq 0.099833\\
+0.1-\frac{1}{3!}0.1^3&=0.0998\overline{3}
+\end{align*}
+Dies nähert bereits $\sin\left(0.1\right)$ um $10^{-5}$ genau an. Für mich war dies doch überraschend.\\
+Es muss in dieser Taylorentwicklung bis zu $x^3$ entwickelt werden.\\
+Dies sind zwei Entwicklungen ($n=0, \ n=1$).
 
 
 
