@@ -14,6 +14,7 @@
 \pgfplotsset{compat=1.16}
 
 \usepackage{dsfont}
+\renewcommand{\phi}{\varphi}
 
 \theoI{5}
 
@@ -134,17 +135,64 @@ Dies sind zwei Entwicklungen ($n=0, \ n=1$).
 
 
 
-
+\newpage
 \section*{Aufgabe 5.2}
+Die Differentialgleichung des eindimensionalen harmonischen Oszillators $m\ddot{x} = F(x)$ mit $F(x) = -m\omega^{2}x$ hat die allgemeine Lösung $x(t) = A\sin(\omega t) + B\cos(\omega t)$. Für die konstante Gesamtenergie des Systems gilt:
+	\[
+		E = \frac{m\omega^{2}}{2}(A^{2}+B^{2}) + C.
+	\]
+Denn: für das Potential $V$ gilt $m\omega^{2}x = -F(x) = \dv{x} V(x)$, also $V(x) = \frac{m\omega^{2}}{2}x^{2}+C$ mit $C = \const$. Für die Gesamtenergie gilt also: (bei (1) wird die trigonometrische Identität $\sin^{2} + \cos^{2} = 1$ verwendet)
+	\begin{align*}
+		E &= \frac{m}{2}\ddot{x} + V(x) \\
+		&= \frac{m}{2}\qty(A\omega\cos(\omega t) - B\omega\sin(\omega t))^{2} + \frac{m\omega^{2}}{2}\qty(A\sin(\omega t) + B\cos(\omega t))^{2} + C \\
+		&= \frac{m\omega^{2}}{2}\big(A^{2}\cos^{2}(\omega t) - 2AB\cos(\omega t)\sin(\omega t) + B^{2}\sin^{2}(\omega t) \\ & \ \ \ \ \ \ \ \ + A^{2}\sin^{2}(\omega t) + 2AB\cos(\omega t)\sin(\omega t) + B^{2}\cos^{2}(\omega t)\big) + C\\
+		&= \frac{m\omega^{2}}{2}\qty(A^{2}+B^{2})\qty(\sin^{2}(\omega t) + \cos^{2}(\omega t)) + C\\
+		&\stackrel{(1)}{=} \frac{m\omega^{2}}{2}\qty(A^{2}+B^{2}) + C.
+	\end{align*}
+Diese ist also nicht von $t$ abhängig und somit konstant. 
 
 
-
-
+\newpage
 \section*{Aufgabe 5.3}
+In einem Spaßbad rutscht ein Massenpunkt der Masse $m$ reibungsfrei eine spiralförmige Rutschbahn hinunter. Die Spirale habe den Radius R und vollführe drei volle Umdrehungen auf einem
+Höhenunterschied $h$. Die Anfangsgeschwindigkeit des Teilchens relativ zur Rutschbahn sei Null.
+Berechnen Sie die Trajektorie $\sim x(t)$ in einem geeignet gewählten Koordinatensystem. Verwenden
+Sie dazu den Energieerhaltungssatz.
+
+Wir wählen den Ursprung des Koordinatensystems als den Mittelpunkt der Projektion der Rutschbahn auf den Boden. Außerdem liege de Anfangspunkt $\vec{x}(0)$ der Rutschbahn in $(R, 0, h)^{T}$. \\ Hier für $h = 5$: 
+	\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.6]{plot_spiralrutsche.pdf}
+	\end{figure}
+	
+	
+Alle Punkte $\vec{x}$ der Rutschbahn lassen sich für $\phi \in [0,6\pi]$ charakterisieren durch:
+	\begin{equation}
+		\vec{x} = \mqty(x \\ y \\ z) = \mqty(R\cos(\phi) \\ R\sin(\phi) \\ \frac{h}{6\pi}\phi).
+	\end{equation}
+Sei $a=\frac{h}{6\pi}$. Für das Kraftfeld der Schwerkraft gilt $\vec{F}(x,y,z) = (0,0,mg)$ (diese wirkt lediglich in Richtung des Bodens). Für das Potential gilt $\vec{F}(\vec{x}) = -\vec{\nabla}V$. Somit erhalten wir als Potential $V(x,y,z) = mgz + C$ für $C = \const$. Da wir unser Koordinatensystem passend gewählt haben gilt $V(x,y,0) = 0$ also $C=0$. Für die Gesamtenergie gilt dann:
+	\begin{align*}
+		E = T + V &= \frac{m}{2}(\dot{x}^{2} + \dot{y}^{2} + \dot{z}^{2}) + mgz \\
+		&= \frac{m}{2}\qty(R^{2}\sin^{2}(\phi)\dot{\phi}^{2} + R^{2}\cos^{2}(\phi)\dot{\phi}^{2} + a^{2}\dot{\phi}^{2}) + mga\phi \\
+		&\stackrel{\sin^{2}+\cos^{2}=1}{=} \frac{m}{2}(R^{2}+a^{2})\dot{\phi}^{2} + mga \phi.
+	\end{align*}
+Energieerhaltung liefert dann:
+	\begin{align*}
+		& 0 = \dv{E}{t} = m(R^{2}+a^{2})\dot{\phi}\ddot{\phi} + mga\dot{\phi}\\
+	\intertext{wir nehmen hier an $\dot{\phi}(t) \neq 0$ für alle $t$, da $\phi$ linear von der Bewegung in $z$-Richtung abhängt, und diese ab dem Zeitpunkt $t=0$ stets zunimmt. Dehsalb folgt:}
+		\implies \ \ \ & 0 = m(R^{2}+a^{2})\ddot{\phi} + mga \\
+		\implies \ \ \ & \ddot{\phi} = -\frac{ga}{(R^{2}+a^{2})} \\
+		\implies \ \ \ & \dot{\phi} = -\frac{ga}{6\pi(R^{2}+a^{2})}t + C_{1} \\
+		\implies \ \ \ & \phi = -\frac{ga}{2(R^{2}+a^{2})}t^{2} + C_{1}t + C_{2}.
+	\end{align*}
+Aus $\dot{\vec{x}}(0) = 0$ folgt $C_{1} = \dot(\phi) = \frac{6\pi}{h}\dot{z}(0) = 0$.\\ Außerdem gilt $\vec{x}(0) = (R,0,h)^{T}$, also $C_{2} = \phi(0) = \frac{6\pi}{h}z(0) = 6\pi$. Somit erhalten wir also:
+	\[
+		\phi(t) = -\frac{ga}{2\pi(R^{2}+a^{2})}t^{2} + 6\pi.
+	\]
+Setzen wir $\phi$ nun in (1) erhalten wir die Trajektorie $\vec{x} = \vec{x}(t)$. 
 
 
-
-
+\newpage
 \section*{Aufgabe 5.4}
 
 Sei $\Sigma$ die vom vorgegebenen Rechteck eingeschlossene Fläche und $R$ der Rand dieser Fläche, über den beim Kurvenintegral integriert wird.
