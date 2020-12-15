@@ -42,6 +42,60 @@
 
 
 \section*{Aufgabe 6.4} 
+Berechnen Sie
+\subsection*{a)}die allgemeine Lösung der Differentialgleichung
+\begin{align*}
+y'=-\frac{2}{x}y+\frac{\ln x}{x^2}\tag*{(1)}\\
+\end{align*}
+Wir lösen zuerst den homogenen Teil:
+\begin{align*}
+\frac{\text{d}y}{\text{d}x}&=-\frac{2}{x}y\\
+\text{Sep. der Var.:}\\
+\frac{\text{d}y}{y}&=-\frac{2}{x}\text{d}x&&|\int\\
+\int\frac{\text{d}y}{y}&=\int-\frac{2}{x}\text{d}x\\
+\ln\left(y\right)&=-2\left(\ln\left(x\right)+\underline{c}\right)\\
+\ln\left(y\right)&=-2\ln\left(x\right)-2\underline{c}&&|\text{$\ln$ auflösen}\\
+y&=e^{-2\ln\left(x\right)}\cdot e^{-2\underline{c}}&&|c:=e^{-2\underline{c}}\\
+y&=cx^{-2}\tag*{(2)}\\\\
+\text{Variation der Kons.:} \ c&\rightarrow c\left(x\right)\\
+y'&=-2\frac{c\left(x\right)}{x^2}+c'\left(x\right)x^{-2}\tag*{(3)}\\
+\text{Setze (2) und (3) in (1) ein:}\\
+-2\frac{c\left(x\right)}{x^3}+\frac{c'\left(x\right)}{x^2}&=-\frac{2}{x}\cdot\frac{c\left(x\right)}{x^2}+\frac{\ln\left(x\right)}{x^2}\\
+\Leftrightarrow \frac{c'\left(x\right)}{x^2}&=\frac{\ln\left(x\right)}{x^2}\\
+\Leftrightarrow c'\left(x\right)&=\ln\left(x\right)\\
+\Rightarrow c\left(x\right)&=\int\text{d}x \ c'\left(x\right) =\int\text{d}x \ \ln\left(x\right)=x\ln\left(x\right)-x+\hat{c} \tag*{(4)}\\\\
+\text{(4) in (2):}\\
+y&=\left(x\ln\left(x\right)-x+\hat{c}\right)\cdot \frac{1}{x^2}\\
+y&=\frac{\ln\left(x\right)-1}{x}-\frac{\hat{c}}{x^2}
+\end{align*}
+\newpage
+\subsection*{b)} die Lösung des Anfangswertproblems
+\begin{align*}
+y'=-2xy+2xe^{-x^2} \tag*{(1)}, \ y\left(0\right)=2
+\end{align*}
+Wir bestimmen den homogenen Teil:
+\begin{align*}
+\frac{\text{d}y}{\text{d}x}&=-2xy\\
+\text{Sep. der Var.:}\\
+\frac{\text{d}y}{y}=-2x\text{d}x&&|\int\\
+\int\text{d}y \ \frac{1}{y}&=-2\int\text{d}x \ x\\
+\ln\left(y\right)&=-x^2-\hat{c}&&|\text{$\ln$ beseitigen}\\
+y&=e^{-x^2-\hat{c}}\\
+y&=e^{-x^2}\cdot e^{-\hat{c}}&&|c:=e^{-\hat{c}}\\
+y&=ce^{-x^2}\tag*{(2)}\\\\
+\text{Variation der Kons.:} \ c\rightarrow c\left(x\right)\\
+y'&=c'\left(x\right)e^{-x^2}-2xe^{-x^2}c\left(x\right)\tag*{(3)}\\\\
+\text{(2) und (3) in (1):}\\
+c'\left(x\right)e^{-x^2}-2xe^{-x^2}&=-2xc\left(x\right)e^{-x^2}+2xe^{-x^2}\\
+c'\left(x\right)e^{-x^2}&=2xe^{-x^2}\\
+c'\left(x\right)&=2x\\
+\Rightarrow c\left(x\right)&=\int\text{d}x \ c'\left(x\right)=\int\text{d}x \ 2x=x^2+\hat{c}\tag*{(4)}\\\\
+\text{(4) in (1) ergibt allg. Lösung für Dgl.:}\\
+y&=\left(x^2+\hat{c}\right)e^{-x^2}\\\\
+\text{Anfangsbed.} \ y\left(0\right)=2 \ \text{einsetzen:}\\
+y\left(0\right)&=\hat{c}=2\\
+\Rightarrow y&=\left(x^2+2\right)e^{-x^2}
+\end{align*}
 
 
 
