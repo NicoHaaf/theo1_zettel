@@ -22,10 +22,49 @@
 \punkteV{5.1}{5.2}{5.3}{5.4}{5.5}
 
 \section*{Aufgabe 6.1} 
-
-
-
-
+Betrachten Sie das eindimensionale Potential
+\begin{align*}
+V\left(x\right)=-\frac{\alpha}{x}+\frac{\beta}{x^2}, \ \alpha,\beta>0
+\end{align*}
+für $x>0$.
+\subsection*{a)}
+Bestimmen Sie das Minimum des Potentials.\\\\
+Wir bestimmen die Nullstelle(n) der ersten Ableitung des Potentials:
+\begin{align*}
+\frac{\text{d}V\left(x\right)}{\text{d}x}=\frac{\text{d}}{\text{d}x}\left(-\frac{\alpha}{x}+\frac{\beta}{x^2}\right)&=\frac{\alpha}{x^2}-2\frac{\beta}{x^3}\\
+0&=\frac{\alpha}{x^2}-2\frac{\beta}{x^3}\\
+\Rightarrow x&=2\frac{\beta}{\alpha}
+\end{align*}
+Da dies auch ein Maximum des Potentials sein könnte, bestimmen wir noch die zweite Ableitung:
+\begin{align*}
+\frac{\text{d}}{\text{d}x}\left(\frac{\alpha}{x^2}-2\frac{\beta}{x^3}\right)&=-2\frac{\alpha}{x^3}+6\frac{\beta}{x^4}\\
+\text{Setze} \ x=2\frac{\beta}{\alpha}&\\
+&=2\frac{\alpha}{\left(2\frac{\beta}{\alpha}\right)^3}
++6\frac{\beta}{\left(2\frac{\beta}{\alpha}\right)^4}\\
+&=3\frac{\alpha^4}{8\beta^3}-2\frac{\alpha^4}{8\beta^3}\\
+&=\frac{\alpha^4}{8\beta^3}>0
+\end{align*}
+Da diese an der Stelle $2\frac{\beta}{\alpha}$ größer als $0$ ist, handelt es sich um ein Minimum.\\
+Somit liegt das Minimum des Potentials bei $2\frac{\beta}{\alpha}$.
+\subsection*{b)}
+Berechnen Sie die Taylor-Entwicklung des Potentials bis einschließlich der zweiten Ordnung um das Minimum.\\\\
+Wir setzen einfach die Ableitungen aus \textbf{a)} in die Formel für die Taylor-Reihe ein, dabei beachten wir, das $V^{\left(1\right)}\left(2\frac{\beta}{\alpha}\right)=0$ und dieser Teil schon wegfällt:
+\begin{align*}
+V\left(x\right)\big|_{2\frac{\beta}{\alpha}}&=-\frac{\alpha^2}{4\beta}+0+\frac{1}{2}\cdot\frac{\alpha^4}{8\beta^3}\cdot\left(x-2\frac{\beta}{\alpha}\right)^2\\
+&=-\frac{\alpha^2}{4\beta}+\frac{\alpha^4}{16\beta^3}x^2-\frac{\alpha^3}{4\beta^2}x+\frac{\alpha^2}{4\beta}\\
+&=\frac{\alpha^4}{16\beta^3}x^2-\frac{\alpha^3}{4\beta^2}x
+\end{align*}
+\subsection*{c)}
+Berechnen Sie die Kreisfrequenz $\omega$ der Schwingung eines Teilchens der Masse $m$ bei kleinen Auslenkungen um seine Ruhelage im Minimum\\\\
+Für kleine Auslenkungen können wir die Taylor-Reihe aus \textbf{b)} nutzen, es gilt:
+\begin{align*}
+\text{F}\left(x\right)=m\ddot{x}=-kx&=-\frac{\text{d}V\left(x\right)}{\text{d}x}=-\frac{\text{d}}{\text{d}x}\left(\frac{\alpha^4}{16\beta^3}x^2-\frac{\alpha^3}{4\beta^2}x\right)\\
+m\cdot\ddot{x}&=-\frac{\alpha^4}{8\beta^3}x+\frac{\alpha^3}{4\beta^2}\\
+\ddot{x}&=-\frac{\alpha^4}{8m\beta^3}x+\frac{\alpha^3}{4\beta^2}\\\\
+\text{Eine mögliche Lösung dieser Dgl. ist:}\\
+x\left(t\right)&=\sin\left(\sqrt{\frac{\alpha^4}{8m\beta^3}} \ t\right)+\frac{\alpha^3}{8\beta^2}t^2\\
+\Rightarrow \omega &=\sqrt{\frac{\alpha^4}{8m\beta^3}}
+\end{align*}
 \section*{Aufgabe 6.2} 
 
 \begin{center}
