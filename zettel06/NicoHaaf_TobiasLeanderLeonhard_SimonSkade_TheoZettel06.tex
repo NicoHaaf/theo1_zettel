@@ -13,8 +13,17 @@
 
 \pgfplotsset{compat=1.16}
 
+%\renewcommand{\phi}{\varphi}
+
+\usepackage{parskip}
 \usepackage{dsfont}
-\renewcommand{\phi}{\varphi}
+\newcommand{\difd}{\text{d}}
+\usepackage{titlesec} 
+\titleformat{\section}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsection}[runin]
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+  
 
 \theoI{5}
 
@@ -67,7 +76,7 @@ x\left(t\right)&=\sin\left(\sqrt{\frac{\alpha^4}{8m\beta^3}} \ t\right)+\frac{\a
 \end{align*}
 
 
-
+\newpage
 \section*{Aufgabe 6.2} 
 
 \begin{center}
@@ -107,13 +116,46 @@ Bitte nur die schwarze, nicht die mit Bleistift gezeichnete Linie betrachten. Di
 Der letzte Umformungsschritt geht ebenfalls aus der Tatsache hervor, dass $\dot{x}(0) = 0$, sodass zum Zeitpunkt $0$ die gesamte Energie in der potentiellen Energie stecken muss.
 
 
-
+\newpage
 \section*{Aufgabe 6.3} 
+Gegeben sei das Vektorfeld:
+\[
+	\vec{F}(\vec{x}) = \mqty(x \\ x^{2} + y^{2} + z^{2} \\ ye^{z}).
+\]
+Die gemeinsamen Punkte der Ebene $z=y$ und des Kreiszylinders, dessen Querschnittsfläche den Radius $1$ besitzt und dessen Achse mit der $z$-Achse zusammenfällt, definieren eine Schnittkurve $S$. Der Weg $C$ beginne im Punkt $\mqty(1, 0, 0)$, verlaufe entlang der Schnittkurve $S$ im Halbraum $y \geq 0$ und ende im Punkte $\mqty(0, 1, 1)$.
+
+\subsection*{(a)}Skizze des Kreiszylinders, der Ebene und des Wegs $C$:
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{zylinderplot.pdf}
+	\end{figure}
+Wir bestimme explizit die Parametrisierung $\vec{x}(\phi)$ der Schnittkurve $S$: wir setzen in die allgemeine Parametrisierung des Kreiszylinders ein, dass gilt $z(\phi,z) = y(\phi,z)$
+	\[
+		\vec{x}(\phi) = \vec{x}(\phi,z) = \mqty(\cos(\phi) \\ \sin(\phi) \\ \sin(\phi)).
+	\]
+Für $\phi \in \qty[0,\frac{\pi}{2}]$ beschreibt diese Parametrisierung genau die Schnittkurve $S$, denn $\vec{x}(0) = \mqty(1,0,0)$ und $\vec{x}(\frac{\pi}{2}) = \mqty(0,1,1)$, nach Konstruktion liegt $\vec{x}(\phi)$ auf dem Kreiszylinder und wegen $z(\phi) = \sin(\phi) = y(\phi)$  liegt $\vec{x}(\phi)$ in der Ebene mit $z=y$. Außerdem $y(\phi) \neq 1$ für alle $\phi \in [0,\frac{\phi}{2})$ und $y(\phi) = \sin(\phi) \geq 0$ für alle $\phi \in \qty[0,\frac{\pi}{2}]$. Somit beschreibt $\vec{x} \colon \qty[0,\frac{\pi}{2}] \to \R^{3}, \phi \mapsto \vec{x}(\phi)$ genau die Schnittkurve $S$. 
+
+\subsection*{(b)} 
+Es gilt:
+	\[
+		\dv{\vec{x}(\phi)}{\phi} = \mqty(-\sin(\phi) \\ \cos(\phi) \\ \cos(\phi) ).
+	\]
+Wir berechnen: bei (1) wird durch $u = \sin(\phi)$ substituiert, bei (2) wird benutzt, dass $(xe^{x}-e^{x})' = xe^{x}$. 
+	\begin{align*}
+		\int_{C} \vec{F}(\vec{x}) \cdot \dd \vec{x} &= \int_{0}^{\frac{\pi}{2}} \vec{F}(\vec{x}(\phi)) \cdot \dv{\vec{x}(\phi)}{\phi} \dd \phi \\
+		&= \int_{0}^{\frac{\pi}{2}} \mqty(\cos(\phi) \\  \cos^{2}(\phi) + 2\sin^{2}(\phi) \\ \sin(\phi)\exp(\sin(\phi)) ) \cdot \mqty(-\sin(\phi) \\ \cos(\phi) \\ \cos(\phi) ) \dd \phi \\
+		&= \int_{0}^{\frac{\pi}{2}} -\cos(\phi)\sin(\phi) + [1 + \sin^{2}(\phi)]\cos(\phi) + \cos(\phi)\sin(\phi)\exp(\sin(\phi)) \dd \phi \\
+		&= \int_{0}^{\frac{\pi}{2}} \cos(\phi)\qty[-\sin(\phi) + 1 + \sin^{2}(\phi) + \sin(\phi)\exp(\sin(\phi))] \dd \phi \\
+		&\stackrel{\text{(1)}}{=} \int_{0}^{1} \qty[1 - u +u^{2} + ue^{u}] \cos(\phi) \frac{\dd u}{\cos(\phi)} \\
+		&= \int_{0}^{1} 1-u+u^{2}+ue^{u} \dd u \\
+		&\stackrel{\text{(2)}}{=} \eval{u - \frac{1}{2}u^{2} + \frac{1}{3}u^{3} + ue^{u} - e^{u}}_{0}^{1} \\
+		&= 1 - \frac{1}{2} + \frac{1}{3} + e - e - 0 + 0 - 0 + 0 + 1  = \frac{11}{6}.
+	\end{align*} \hfill $\square$
 
 
 
 
-
+\newpage
 \section*{Aufgabe 6.4} 
 Berechnen Sie
 \subsection*{a)}die allgemeine Lösung der Differentialgleichung
