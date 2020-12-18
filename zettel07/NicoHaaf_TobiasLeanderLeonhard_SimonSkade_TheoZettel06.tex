@@ -1,0 +1,167 @@
+\documentclass{theozettel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=20mm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{compat=1.16}
+
+%\renewcommand{\phi}{\varphi}
+
+\usepackage{parskip}
+\usepackage{dsfont}
+\newcommand{\difd}{\text{d}}
+\usepackage{titlesec} 
+\titleformat{\section}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsection}[runin]
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+  
+
+\theoI{5}
+
+\begin{document}
+\punkteV{5.1}{5.2}{5.3}{5.4}{5.5}
+
+\section*{Aufgabe 7.1} 
+
+a)
+
+Sei $x(t)$ die Länge des Teils des Seils, das zu dem Zeitpunkt $t$ von der Tischkante hinabhängt. Die Gewichtskraft, die auf dieses Ende wirkt, ist die Kraft, die die Bewegung des Seils beeinflusst, bzw. gleich $m \ddot{x}$. Somit gilt:
+
+$$
+\ddot{x} = \frac{F_g(t)}{m} = \frac{\mu g x(t)}{m} = \frac{g}{L} x(t) =: K x(t)
+$$
+
+Um diese DGL zu lösen, machen wir den Ansatz $x(t) = e^{ct}$, setzen dies in die DGL ein und bestimmen $c$ durch umformen:
+
+$$
+c^{2} e^{ct} = K e^{ct}
+$$
+
+$$
+c = \pm \sqrt{K}
+$$
+
+Somit haben wir zwei spezielle Lösungen der DGL gefunden. Die allgemeine Lösung ergibt sich nun als allgemeine Linearkombination der beiden speziellen Lösungen:
+
+$$
+x(t) = A e^{\sqrt{K} t} + B e^{- \sqrt{K} t}
+$$
+
+Wir definieren den Zeitpunkt, wann die Kette anfängt sich zu bewegen als $t_0 = 0$.
+
+Nun können wir $A$ und $B$ mithilfe unserer Anfangsbedingungen herausfinden:
+
+\begin{align*}
+\dot{x}(0) = 0 &= \sqrt{K} (A e^{\sqrt{K} 0} - B e^{- \sqrt{K} 0}) \\
+&= A - B \\
+A &= B
+\end{align*}
+
+
+\begin{align*}
+x(0) = x_0 &= A e^{\sqrt{K} 0} + B e^{- \sqrt{K} 0} \\
+&= A + B \\
+A &= \frac{x_0}{2} \\
+B &= \frac{x_0}{2}
+\end{align*}
+
+Somit ergibt sich:
+
+$$
+x(t) = x_0 \cosh(\sqrt{K} t) = x_0 \cosh(\sqrt{\frac{g}{L}} t)
+$$
+
+Die Gleichung gilt offensichtlich nur bis zum Zeitpunkt $T$.
+
+
+b)
+
+Die Anfangsgeschwindigkeit des freien Falls ist offensichtlich $\dot{x}(T)$. Hierfür wird zunächst $T$ berechnet:
+
+$$
+x(T) =  x_0 \cosh(\sqrt{\frac{g}{L}} T) = L
+$$
+
+$$
+T = \text{arccosh}(\frac{L}{g}) \sqrt{\frac{L}{g}}
+$$
+
+$\dot{x}(T)$ ergibt somit:
+
+$$
+\dot{x}(T) = x_0 \sqrt{\frac{g}{L}} \sinh(\sqrt{\frac{g}{L}} T) = x_0 \sqrt{\frac{g}{L}} \sqrt{(\cosh( \sqrt{\frac{g}{L}} \sqrt{\frac{L}{g}} \text{arccosh}(\frac{L}{x_0})) - 1)} = x_0 \sqrt{\frac{g}{x_0} - \frac{g}{L}}
+$$
+
+c) 
+%Bei dieser Teilaufgabe bin ich mir nicht sicher ob ich es richtig habe (bzw auch nicht sicher, ob ich es überhaupt richtig verstanden habe.)
+
+In diesem Fall gibt es noch die Gleitreibung, die der Gewichtskraft entgegen wirkt. Somit verändert sich die DGL wie folgt:
+
+$$
+\ddot{x} = \frac{F_g(t) - F_{Gl}(t)}{m} = \frac{\mu g x(t) - \eta (L-x(t))}{m} = (K + \frac{\eta}{m}) x - \frac{\eta L}{m}
+$$
+
+Wir definieren $K' = K + \frac{\eta}{m}$. Nun machen wir einfach den Ansatz, dass wir einen Summanden zu der Lösung der homogenen DGL $x(t)$ hinzufügen, sodass die zweite Ableitung des Summanden $- \frac{\eta L}{m}$ ergibt:
+
+$$
+x(t) = x_0 \cosh(\sqrt{K'} t) - \frac{\eta L}{2 m} t^{2}
+$$
+
+Nun müssen wir noch überprüfen, ob diese spezielle Lösung mit unseren Anfangsbedingungen übereinstimmt, und ggf. die Lösung abändern.
+
+$$
+x(0) = x_0 \cosh(0) - \frac{\eta L}{2 m} 0^{2} = x_0
+$$
+
+$$
+\dot{x}(0) = x_0 \sqrt{K'} \sinh(0) - \frac{\eta L}{m} 0 = 0
+$$
+
+Somit erfüllt diese Gleichung schon tatsächlich beide unserer Anfangsbedingung, sodass $x(t) = x_0 \cosh(\sqrt{K'} t) - \frac{\eta L}{2 m} t^{2}$ tatsächlich den Abgleitvorgang in unserem Fall beschreibt.
+
+
+\section*{Aufgabe 7.2} 
+
+
+Einfach ausrechnen:
+
+$$
+x(0) = x_0 = a e^{- \gamma 0} + b 0 e^{- \gamma 0} = a
+$$
+
+Also gilt $a = x_0$.
+
+$$
+\dot{x}(0) = 0 = - \gamma a e^{- \gamma 0} + (b e^{- \gamma 0} - \gamma b 0 e^{- \gamma 0}) = b - \gamma a
+$$
+
+Somit gilt $b = \gamma a = \gamma x_0$.
+
+
+
+\section*{Aufgabe 7.3} 
+
+
+
+\section*{Aufgabe 7.4} 
+
+
+
+\section*{Aufgabe 7.5} 
+
+
+
+
+
+
+
+\end{document}
