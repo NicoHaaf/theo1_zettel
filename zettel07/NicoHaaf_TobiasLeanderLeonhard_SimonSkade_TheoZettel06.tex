@@ -149,9 +149,40 @@ Somit gilt $b = \gamma a = \gamma x_0$.
 
 
 \section*{Aufgabe 7.3} 
-
-
-
+Bestimmen Sie die allgemeinen rellen Lösungen für die Differentialgleichungen
+\subsection*{a)} $\ddot{x}-5\dot{x}+6x=0$
+\begin{align*}
+\ddot{x}-5\dot{x}+6x&=0\\
+\Rightarrow\lambda^2-5\lambda+6&=0\\
+\Leftrightarrow\left(\lambda-2\right)\cdot\left(\lambda-3\right)&=0\\
+\Rightarrow\lambda_1=2 \ ;& \ \lambda_2=3\\
+\Rightarrow x&=c_1e^{2t}+c_2e^{3t}
+\end{align*}
+\subsection*{b)}$\dddot{x}+\ddot{x}+4\dot{x}+4x=0$
+\begin{align*}
+\dddot{x}+\ddot{x}+4\dot{x}+4x&=0\\
+\Rightarrow \lambda^3+\lambda^2+4\lambda+4&=0\\
+\Leftrightarrow \lambda^2\left(\lambda+1\right)+4\left(\lambda+1\right)&=0\\
+\Leftrightarrow\left(\lambda^2+4\right)\left(\lambda+1\right)&=0\\
+\Rightarrow \lambda_{1;2}=0\pm 2i \ &; \ \lambda_3=-1\\
+\Rightarrow x&=ae^{-x}+b\sin\left(2x\right)+c\cos\left(2x\right)
+\end{align*}
+\subsection*{c)}$\ddot{x}+6\dot{x}+25x=0$; $x\left(0\right)=5, \ \dot{x}\left(0\right)=-3$
+\begin{align*}
+\ddot{x}+6\dot{x}+25x&=0\\
+\Rightarrow \lambda^2+6\lambda +25&=0\\
+\Rightarrow\lambda_{1;2}=\frac{-6\pm\sqrt{6^2-4\cdot 25}}{2}&=-3\pm 4i\\
+\Rightarrow x&=e^{-3t}\left(c_1\sin\left(4t\right)+c_2\cos\left(4t\right)\right)\\
+\end{align*}
+Anfangsbed. einsetzen:
+\begin{align*}
+x\left(0\right)=5&=e^{-3\cdot 0}\left(c_1\sin\left(4\cdot 0\right)+c_2\cos\left(4\cdot 0\right)\right)\\
+5&=c_2\\\\
+\dot{x}\left(0\right)=-3&=-3e^{-3\cdot 0}\left(c_1\sin\left(4\cdot 0\right)+5\cos\left(4\cdot 0\right)\right)+e{-3\cdot 0}\left(4c_1\cos\left(4\cdot 0\right)-20\sin\left(4\cdot 0\right)\right)\\
+-3&=-15+4c_1\\
+c_1&=3\\\\
+\Rightarrow x&=e^{-3t}\left(3\sin\left(4t\right)+5\cos\left(4t\right)\right)
+\end{align*}
 \section*{Aufgabe 7.4} 
 
 
