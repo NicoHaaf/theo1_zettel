@@ -184,9 +184,89 @@ c_1&=3\\\\
 \Rightarrow x&=e^{-3t}\left(3\sin\left(4t\right)+5\cos\left(4t\right)\right)
 \end{align*}
 \section*{Aufgabe 7.4} 
-
-
-
+\subsection*{a)}Wie in der Vorlesung besprochen, werden Drehungen durch orthogonale Matrizen beschrieben. Die Wirkung auf Vektoren ist $\vec{r}\mapsto\vec{r}'=A\vec{r}$. Geben Sie die Matrix an, welche eine Drehung in der $x$-$y$-Ebene um den Winkel $\varphi$ beschreibt. Wie lautet dann die Matrix $B$, die diese Drehung wieder rückgängig macht? Berechnen Sie die Determinanten von $A$ und $B$.\\\\
+Da wir die Vektoren mit dieser Matrix nur drehen wollen, bleiben die tatsächlichen Längen der Vektoren gleich. Somit reicht es, wenn wir die Einheitsvektoren drehen. Nach der Drehung haben diese immer noch die gleiche Länge, jedoch eine andere Ausrichtung.\\
+Da wir in der $x$-$y$-Achse drehen, können wir die Drehung in diesem Untervektorraum vollführen. Da dort die $z$-Komponente nicht entscheidend ist, muss diese bei einer späteren Matrixmultiplikation wegfallen:
+\begin{align*}
+\mqty(a_{11} & a_{12} & a_{13}\\a_{21} &a_{22} & a_{23}\\a_{31} &a_{32} & a_{33})\cdot\mqty(x\\y\\z)&=\mqty(a_{11}x+a_{12}y+a_{13}z\\a_{21}x+a_{22}y+a_{23}z\\a_{31}x+a_{32}y+a_{33}z)\\
+\Rightarrow a_{13}=a_{23}=a_{31}&=a_{32}=0\ ; \ a_{33}=1\\\\
+\Rightarrow A&=\mqty(a_{11} & a_{12} & 0\\a_{21} &a_{22} & 0\\0 & 0 & 1)
+\end{align*}
+Diese Form wurde auch im Hinweis gegeben.\\
+Betrachten wir nun den $\mathbb{R}^2$ der $x$-$y$-Ebene.
+\begin{center}
+\includegraphics[scale=0.4]{Theo07-4a)_1.pdf}
+\end{center}
+Um die Drehung des Einheitsvektors der $x$-Achse zu beschreiben reicht:
+\begin{align*}
+\mqty(a_{11} & a_{12}\\ a_{21} &a_{22})\mqty(1 \\ 0)=\mqty(a_{11}\\ a_{21})
+\end{align*}
+Die lässt sich einfach per Trigonometrie lösen:
+\begin{align*}
+\mqty(\cos\left(\varphi\right) & a_{12}\\ \sin\left(\varphi\right) &a_{22})\mqty(1 \\ 0)=\mqty(\cos\left(\varphi\right)\\\sin\left(\varphi\right))
+\end{align*}
+Nun muss aber auch der Einheitsvektor der $y$-Achse gedreht werden:
+\begin{center}
+\includegraphics[scale=0.4]{Theo07-4a)_2.pdf}
+\end{center}
+Um die Drehung des Einheitsvektors der $y$-Achse zu beschreiben reicht:
+\begin{align*}
+\mqty(a_{11} & a_{12}\\ a_{21} &a_{22})\mqty(0 \\ 1)=\mqty(a_{12}\\ a_{22})
+\end{align*}
+Die lässt sich einfach per Trigonometrie lösen:
+\begin{align*}
+\mqty(\cos\left(\varphi\right) & -\sin\left(\varphi\right)\\ \sin\left(\varphi\right) &\cos\left(\varphi\right))\mqty(0 \\ 1)=\mqty(-\sin\left(\varphi\right)\\\cos\left(\varphi\right))
+\end{align*}
+Nun können wir die Untermatrix einfach in $A$ wieder einsetzen, dies ergibt:
+\begin{align*}
+A=\mqty(\cos\left(\varphi\right) & -\sin\left(\varphi\right) & 0 \\ \sin\left(\varphi\right) & \cos\left(\varphi\right) & 0\\ 0&0&1)
+\end{align*}
+Um den Vektor wieder zurückzudrehen, reicht es, ihn einfach um den im Betrag gleichen Winkel in die entgegengesetzte Richtung zu drehen.\\
+Somit ist $B\left(\varphi\right)=A\left(-\varphi\right)$:
+\begin{align*}
+B=\mqty(\cos\left(-\varphi\right) & -\sin\left(-\varphi\right) & 0 \\ \sin\left(-\varphi\right) & \cos\left(-\varphi\right) & 0\\ 0&0&1)=\mqty(\cos\left(\varphi\right) & \sin\left(\varphi\right) & 0 \\ -\sin\left(\varphi\right) & \cos\left(\varphi\right) & 0\\ 0&0&1)
+\end{align*}
+Die Determinanten von $A$ und $B$ sind gleich, denn:
+\begin{align*}
+\det\left(A\right)=\cos\left(\varphi\right)^2-\left(-sin\left(\varphi\right)^2\right)&=1\\
+\det\left(B\right)=\cos\left(\varphi\right)^2-\left(-sin\left(\varphi\right)^2\right)&=1
+\end{align*}
+\subsection*{b)}Wie sieht die entsprechende Drehmatrix für eine Drehung in der $x$-$z$-Ebene aus?\\
+Wie in \textbf{a)} können wir eine Achse vernachlässigen, in diesem Fall die $y$-Achse.
+\begin{align*}
+\mqty(a_{11} & a_{12} & a_{13}\\a_{21} &a_{22} & a_{23}\\a_{31} &a_{32} & a_{33})\cdot\mqty(x\\y\\z)&=\mqty(a_{11}x+a_{12}y+a_{13}z\\a_{21}x+a_{22}y+a_{23}z\\a_{31}x+a_{32}y+a_{33}z)\\
+\Rightarrow a_{12}=a_{21}=a_{23}&=a_{32}=0\ ; \ a_{22}=1\\\\
+\Rightarrow A&=\mqty(a_{11} & 0 & a_{13} \\ 0 &1 & 0\\a_{31} & 0 & a_{33})
+\end{align*}
+Betrachten wir diesmal die $x$-$z$-Ebene:
+\begin{center}
+\includegraphics[scale=0.4]{Theo07-4b)_1.pdf}
+\end{center}
+Um die Drehung des Einheitsvektors der $x$-Achse zu beschreiben reicht:
+\begin{align*}
+\mqty(a_{11} & a_{13}\\ a_{31} &a_{33})\mqty(1 \\ 0)=\mqty(a_{11}\\ a_{31})
+\end{align*}
+Die lässt sich einfach per Trigonometrie lösen:
+\begin{align*}
+\mqty(\cos\left(\varphi\right) & a_{13}\\ -\sin\left(\varphi\right) &a_{33})\mqty(1 \\ 0)=\mqty(\cos\left(\varphi\right)\\-\sin\left(\varphi\right))
+\end{align*}
+Das $-\sin\left(\varphi\right)$ kommt durch die Richtung des $z$-Einheitsvektors.
+Nun muss aber auch der Einheitsvektor der $z$-Achse gedreht werden:
+\begin{center}
+\includegraphics[scale=0.4]{Theo07-4b)_2.pdf}
+\end{center}
+Um die Drehung des Einheitsvektors der $y$-Achse zu beschreiben reicht:
+\begin{align*}
+\mqty(a_{11} & a_{13}\\ a_{31} &a_{33})\mqty(0 \\ 1)=\mqty(a_{13}\\ a_{33})
+\end{align*}
+Die lässt sich einfach per Trigonometrie lösen:
+\begin{align*}
+\mqty(\cos\left(\varphi\right) & \sin\left(\varphi\right)\\ -\sin\left(\varphi\right) &\cos\left(\varphi\right))\mqty(0 \\ 1)=\mqty(\sin\left(\varphi\right)\\\cos\left(\varphi\right))
+\end{align*}
+Nun können wir die Untermatrix einfach in $A$ wieder einsetzen, dies ergibt:
+\begin{align*}
+A=\mqty(\cos\left(\varphi\right)&0&\sin\left(\varphi\right)\\0&1&0\\-\sin\left(\varphi\right)&0&\cos\left(\varphi\right))
+\end{align*}
 \section*{Aufgabe 7.5} 
 
 
