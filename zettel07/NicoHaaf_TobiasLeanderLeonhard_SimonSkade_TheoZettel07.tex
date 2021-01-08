@@ -98,7 +98,7 @@ $$
 $\dot{x}(T)$ ergibt somit:
 
 $$
-\dot{x}(T) = x_0 \sqrt{\frac{g}{L}} \sinh(\sqrt{\frac{g}{L}} T) = x_0 \sqrt{\frac{g}{L}} \sqrt{(\cosh( \sqrt{\frac{g}{L}} \sqrt{\frac{L}{g}} \text{arccosh}(\frac{L}{x_0})) - 1)} = x_0 \sqrt{\frac{g}{x_0} - \frac{g}{L}}
+\dot{x}(T) = x_0 \sqrt{\frac{g}{L}} \sinh(\sqrt{\frac{g}{L}} T) = x_0 \sqrt{\frac{g}{L}} \sqrt{(\cosh( \sqrt{\frac{g}{L}} \sqrt{\frac{L}{g}} \text{arccosh}(\frac{L}{x_0}))^{2} - 1)} = \sqrt{\frac{g}{L} (L^{2} - x_0^{2})}
 $$
 
 c) 
@@ -107,26 +107,48 @@ c)
 In diesem Fall gibt es noch die Gleitreibung, die der Gewichtskraft entgegen wirkt. Somit verändert sich die DGL wie folgt:
 
 $$
-\ddot{x} = \frac{F_g(t) - F_{Gl}(t)}{m} = \frac{\mu g x(t) - \eta (L-x(t))}{m} = (K + \frac{\eta}{m}) x - \frac{\eta L}{m}
+\ddot{x} = \frac{F_g(t) - F_{Gl}(t)}{m} = \frac{\mu g x(t) - \eta (L-x(t))}{m} = \frac{\mu g + \eta}{\mu L} x - \frac{\eta L}{m} =: K' x - \frac{\eta}{\mu}
 $$
 
-Wir definieren $K' = K + \frac{\eta}{m}$. Nun machen wir einfach den Ansatz, dass wir einen Summanden zu der Lösung der homogenen DGL $x(t)$ hinzufügen, sodass die zweite Ableitung des Summanden $- \frac{\eta L}{m}$ ergibt:
+Der homogene Teil der DGL (ohne das $\frac{\eta}{\mu}$) lässt sich wie in Aufgabenteil a) lösen. Da der inhomogene Teil eine Konstante, bzw. unabhängig von $t$ ist, kann diese inhomogene DGL durch das addieren einer Konstanten $C$ zu der Lösung der homogenen DGL $x_{hom}$ gelößt werden, da hierdurch die Ableitungen von $x$ unverändert bleiben und die Konstante den inhomogenen Term ausgleichen kann:
 
 $$
-x(t) = x_0 \cosh(\sqrt{K'} t) - \frac{\eta L}{2 m} t^{2}
+\ddot{x_{hom}} = K' x_{hom} = \ddot{x} = K' x - \frac{\eta}{\mu} = K' (x_{hom} + C) - \frac{\eta}{\mu}
 $$
 
-Nun müssen wir noch überprüfen, ob diese spezielle Lösung mit unseren Anfangsbedingungen übereinstimmt, und ggf. die Lösung abändern.
+Das $C$ muss somit Folgendes sein:
 
 $$
-x(0) = x_0 \cosh(0) - \frac{\eta L}{2 m} 0^{2} = x_0
+C = \frac{\eta}{\mu K'} =  \frac{\eta L}{\mu g + \eta}
+$$
+
+Nun kann man können wir die allgemeine Lösung der homogenen Gleichung einsetzen und mit denn Anfangsbedingungen wie in Aufgabenteil a) die Konstanten herausfinden:
+
+$$
+x(0) = A e^{-\sqrt{K'} 0} + B e^{\sqrt{K'} 0} + C = x_0
+$$
+
+Also:
+
+$$
+A + B = x_0 - C
 $$
 
 $$
-\dot{x}(0) = x_0 \sqrt{K'} \sinh(0) - \frac{\eta L}{m} 0 = 0
+\dot{x}(0) = -\sqrt{K'} A e^{-\sqrt{K'} 0} + \sqrt{K'}B e^{\sqrt{K'} 0} = 0
 $$
 
-Somit erfüllt diese Gleichung schon tatsächlich beide unserer Anfangsbedingung, sodass $x(t) = x_0 \cosh(\sqrt{K'} t) - \frac{\eta L}{2 m} t^{2}$ tatsächlich den Abgleitvorgang in unserem Fall beschreibt.
+Somit gilt $A = B$. Zusammen ergeben die Bedingungen:
+
+$$
+A = B = \frac{x_0 - C}{2} = \frac{x_0 - \frac{\eta L}{\mu g + \eta}}{2}
+$$
+
+Insgesamt gilt also:
+
+$$
+x(t) = (x_0 - \frac{\eta L}{\mu g + \eta}) \cosh(\sqrt{\frac{\mu g + \eta}{\mu L}} t ) + \frac{\eta L}{\mu g + \eta}
+$$
 
 
 \section*{Aufgabe 7.2} 
