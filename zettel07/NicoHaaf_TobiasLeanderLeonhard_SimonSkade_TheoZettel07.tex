@@ -24,11 +24,13 @@
 \titleformat{\subsection}[runin]
   {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
   
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\vol}{\operatorname{vol}}
 
-\theoI{5}
+\theoI{7}
 
 \begin{document}
-\punkteV{5.1}{5.2}{5.3}{5.4}{5.5}
+\punkteV{7.1}{7.2}{7.3}{7.4}{7.5}
 
 \section*{Aufgabe 7.1} 
 
@@ -289,9 +291,78 @@ Nun können wir die Untermatrix einfach in $A$ wieder einsetzen, dies ergibt:
 \begin{align*}
 A=\mqty(\cos\left(\varphi\right)&0&\sin\left(\varphi\right)\\0&1&0\\-\sin\left(\varphi\right)&0&\cos\left(\varphi\right))
 \end{align*}
+
+
 \section*{Aufgabe 7.5} 
+\subsection*{a) + b)}
+	Seien $\vec{a},\vec{b},\vec{c} \in \R^{3}$. Zunächst untersuchen wir $\qty|\vec{a} \cdot (\vec{b} \times \vec{c})|$ aus Vertauschung von $\vec{a}, \vec{b}$ und $\vec{c}$. Da $\varepsilon^{ijk}$ vollständig antisymmetrisch unter vertauschung zweier Indizes ist, folgt:
+		\begin{align*}
+			\vec{a} \cdot (\vec{b} \times \vec{c}) &= a_{i} (\vec{b} \times \vec{c})_{i} \\
+			&= a_{i} \epsilon^{ijk}b_{j}c_{k} \\
+			&= -b_{j} \epsilon^{jik}a_{i}c_{k} &&= -\vec{b} \cdot (\vec{a} \times \vec{c}) \\
+			&= b_{j} \epsilon^{jki}c_{k}a_{i} &&= \vec{b} \cdot (\vec{c} \times \vec{a}) \\	
+			&= -c_{k} \epsilon^{kji}b_{j}a_{i} &&= -\vec{c} \cdot (\vec{b} \times \vec{a}) \\
+			&= c_{k} \epsilon^{kij}a_{i}b_{j} &&= \vec{c} \cdot (\vec{a} \times \vec{b}) \\
+			&= -a_{i} \epsilon^{ikj} c_{k}b_{j} &&= -\vec{a} \cdot (\vec{c} \times \vec{b}).
+		\end{align*}
+	Es folgt dass $\qty|\vec{a} \cdot (\vec{b} \times \vec{c})|$ invariant unter Vertauschung von $\vec{a}, \vec{b}$ und $\vec{c}$ ist. \\
+\begin{enumerate}[(F1)]
+	\item 	Sind $\vec{a},\vec{b}$ und $\vec{c}$ nicht paarweise linear unabhängig, so handelt es sich bei dem von $\vec{a}, \vec{b}$ und $\vec{c}$ aufgespanntem Parallelpiped $P \coloneqq P_{\vec{a},\vec{b},\vec{c}}$ um eine Fläche, folglich $\vol(P) = 0$. Ohne Einschränkung seien $\vec{b}$ und $\vec{c}$ linear abhängig (sonst nutze Vertauschungsinvarianz von $\qty|\vec{a} \cdot (\vec{b} \times \vec{c})|$), dann ist $\vec{b} \times \vec{c} = 0$ und somit $\qty|\vec{a} \cdot (\vec{b} \times \vec{c})| = 0$.
+	
+	\item 	Seien $\vec{a}, \vec{b}$ und $\vec{c}$ linear unabhängig. Bezeichne $\Delta$ die Grundfläche von $P$, welche von $\vec{b}$ und $\vec{c}$ aufgespannt wird und $h$ sei die Höhe des Parallelpiped zu $\Delta$, dann gilt: $\vol(P) = \Delta \cdot h$. \\
+			Es gilt $\qty|\vec{b} \times \vec{c}| = \qty|\vec{b}| \cdot \qty|\vec{c}| \cdot \qty|\sin(\theta)|$, wobei $\theta \neq 0$ (da $\vec{b}$ und $\vec{c}$ linear unabhängig) der Winkel zwischen $\vec{b}$ und $\vec{c}$ ist. Aus folgender Skizze folgt geometrisch sofort, dass \[\Delta = \qty|\vec{c}| \cdot \tilde{h} = \qty|\vec{b}| \cdot \qty|\vec{c}| \cdot \qty|\sin(\theta)| = \qty|\vec{b} \times \vec{c}| \]
+			\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\draw[->] (-0.5,0) -- (7,0);
+				\draw[->] (0,-0.5) -- (0,4);
+				
+				\draw[->, thick, blue] (0,0) -- (6.3,0);
+				\node at (3.2,0) [label=below:\textcolor{blue}{$\vec{c}$}] {};
+				
+				\draw[->, thick, red] (0,0) -- (4,3);
+				\node at (2,1.6) [label=left:\textcolor{red}{$\vec{b}$}] {};
+				
+				\draw[thick, black] (4,3) -- (6.3,0);
+				%\node at (2,0) [label=below:\textcolor{red}{$y_{1}$}] {};
+				
+				\draw[thick, black] (4,0) -- (4.0,3);
+				\node at (3.9,1.5) [label=right:\textcolor{black}{$\tilde{h}$}] {};
+				
+				\draw (1,0) arc (0:38:1);
+				\node at (0.2,0.2) [label=right:\textcolor{black}{$\theta$}] {};
+			\end{tikzpicture}
+			\end{figure} \\
+			Analog sehen wir geometrisch ein, dass $h = \qty|\vec{a}| \cdot \qty|\cos(\phi)|$ wobei $\phi$ der Winkel zwischen $\vec{a}$ und $\vec{b} \times \vec{c}$ ist ($\vec{b} \times \vec{c}$ steht orthogonal auf $\Delta$). Ferner gilt dann, da $\qty|\frac{\vec{b} \times \vec{c}}{\qty|\vec{b} \times \vec{c}|} | = 1$:
+			\begin{align*}
+				\vol(P) &= \Delta \cdot h  \\
+				&= \qty|\vec{b} \times \vec{c}| \cdot \qty|\vec{a}| \cdot \qty|\cos(\phi)| \\
+				&= \qty|\vec{b} \times \vec{c}| \cdot \qty|\frac{\vec{b} \times \vec{c}}{\qty|\vec{b} \times \vec{c}|} |\cdot \qty|\vec{a}| \cdot \qty|\cos(\phi)| \\
+				&= \qty|\vec{a}| \cdot  \left| \qty|\vec{b} \times \vec{c}| \cdot \frac{\vec{b} \times \vec{c}}{\qty|\vec{b} \times \vec{c}|} \right| \cdot \qty|\cos(\phi)| \\
+				&= \qty|\vec{a}| \cdot \qty|\vec{b} \times \vec{c}| \cdot \qty|\cos(\phi)| \\
+				&= \qty|\vec{a} \cdot (\vec{b} \times \vec{c}) |.
+			\end{align*}
+			Analog zu oben gilt für die Matrix $A = (\vec{a},\vec{b},\vec{c})$:
+			\begin{align*}
+				\det(A) = \epsilon^{123}\det(A) = \epsilon^{ijk}A_{1i}A_{2j}A_{3k} = \epsilon^{ijk}a_{i}b_{j}c_{k} = \qty|\vec{a} \cdot (\vec{b} \times \vec{c})|.
+			\end{align*}
 
-
+\subsection*{c)}
+Sei $n \in \N$ und für $i = 1,...,n$ seien $\vec{a}_{i} \in \R^{n}$ und es existieren $j \neq k$ sodass $\vec{a}_{j} = \alpha \vec{a}_{k}$. Dann gilt für $A = (\vec{a}_{1},...,\vec{a}_{n})$:
+	\begin{align*}
+		\det(A) = \epsilon^{1...n} \det(A) &= \epsilon^{i_{1}...i_{n}}A_{1i_{1}}...A_{ji_{j}}...A_{ki_{k}}...A_{ni_{n}} \\
+		&= \epsilon^{i_{1}...i_{j}...i_{k}...i_{n}} (\vec{a}_{1})_{i_{1}}...(\vec{a}_{j})_{i_{j}}...(\vec{a}_{k})_{i_{k}}...(\vec{a}_{n})_{i_{n}} \\	
+		&= - \epsilon^{i_{1}...i_{k}...i_{j}...i_{n}} (\vec{a}_{1})_{i_{1}}...(\vec{a}_{j})_{i_{j}}...(\vec{a}_{k})_{i_{k}}...(\vec{a}_{n})_{i_{n}} \\	
+		&= - \epsilon^{i_{1}...i_{k}...i_{j}...i_{n}} (\vec{a}_{1})_{i_{1}}...\alpha(\vec{a}_{k})_{i_{j}}...(\vec{a}_{k})_{i_{k}}...(\vec{a}_{n})_{i_{n}} \\
+		&= - \epsilon^{i_{1}...i_{k}...i_{j}...i_{n}} (\vec{a}_{1})_{i_{1}}...(\vec{a}_{k})_{i_{j}}...\alpha(\vec{a}_{k})_{i_{k}}...(\vec{a}_{n})_{i_{n}} \\
+		&= - \epsilon^{i_{1}...i_{k}...i_{j}...i_{n}} (\vec{a}_{1})_{i_{1}}...(\vec{a}_{k})_{i_{j}}...(\vec{a}_{j})_{i_{k}}...(\vec{a}_{n})_{i_{n}} \\
+		&= - \epsilon^{i_{1}...i_{k}...i_{j}...i_{n}} (\vec{a}_{1})_{i_{1}}...(\vec{a}_{j})_{i_{k}}...(\vec{a}_{k})_{i_{j}}...(\vec{a}_{n})_{i_{n}} \\
+		&= - \epsilon^{1...n}\det(A) = -\det(A).
+	\end{align*}
+Aus $\det(A) = -\det(A)$ folgt bereits $\det(A) = 0$.
+	
+\end{enumerate}
+	
 
 
 
