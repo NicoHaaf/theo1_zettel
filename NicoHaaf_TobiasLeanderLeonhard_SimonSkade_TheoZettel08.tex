@@ -1,0 +1,79 @@
+\documentclass{theozettel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=20mm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{compat=1.16}
+
+%\renewcommand{\phi}{\varphi}
+
+\usepackage{parskip}
+\usepackage{dsfont}
+\newcommand{\difd}{\text{d}}
+\usepackage{titlesec} 
+\titleformat{\section}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsection}[runin]
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+  
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\vol}{\operatorname{vol}}
+
+\theoI{9}
+
+\begin{document}
+\punkteVI{9.1}{9.2}{9.3}{9.4}{9.5}{9.6}
+
+\section*{Aufgabe 9.3}
+
+
+
+\section*{Aufgabe 9.5} 
+Die Voraussetzung der Differenzierbarkit für l'Hospital ist hier stets gegeben.
+\begin{enumerate}[(i)]
+	\item 	Die Regel von l'Hospital liefert wegen $\sin(x) \stackrel{x \to 0}{\longrightarrow} 0$ und $x \stackrel{x \to 0}{\longrightarrow} 0$:
+			\[
+				\lim_{x \to 0} \frac{\sin(x)}{x} = \lim_{x \to 0} \frac{\cos(x)}{1} = 1.
+			\]
+			
+	\item 	Die Regel von ä'Hospital liefert wegen $\frac{1}{x} \stackrel{x \to 0}{\longrightarrow} \infty$ und $\log(x) \stackrel{x \to 0}{\longrightarrow} \infty$:
+			\[
+				\lim_{x \to 0} \frac{\log(x)}{\frac{1}{x}} = \lim_{x \to 0} \frac{\frac{1}{x} }{ \frac{-1}{x^{2}}} = \lim_{x \to 0} -x = 0.
+			\]
+	
+	\item 	Wir verwenden, dass aus Ana bekannt ist, dass $\lim_{x \to \infty} \qty(1 - \frac{z}{x})^{x} = e^{-z}$. Da Produkt zweier konvergenter Folge gegen das Produkt der Grenzwerte konvergiert folgt:
+			\[
+				\lim_{x \to \infty} \qty(1-\frac{2}{x})^{5x} = \left( \lim_{x \to \infty} \qty(1-\frac{2}{x})^{x} \right)^{5} = \qty(e^{-2})^{5} =\frac{1}{e^{10}}.
+			\]
+	
+	\item 	Die Regel von l'Hospital liefert wegen $\cos(x) - \sqrt{1-x^{2}} \stackrel{x \to 0}{\longrightarrow} 0$ und $x^{4} \stackrel{x \to 0}{\longrightarrow} 0$ (bei $(*)$ gilt wieder der $0/0$ Fall)
+			\begin{align*}
+				\lim_{x \to 0} \frac{\cos(x) - \sqrt{1-x^{2}}}{x^{4}} &= \lim_{x \to 0} \frac{-\sin(x) - \frac{x}{\sqrt{1-x^{2}}}}{4x^{3}} \\
+				&\stackrel{(*)}{=} \lim_{x \to 0} \frac{-\cos(x) + \frac{1}{(1-x^{2})^{\frac{3}{2}}}}{12x^{2}}  \\
+				&\stackrel{(*)}{=} \lim_{x \to 0} \frac{\sin(x) + \frac{3x}{(1-x^{2})^{\frac{5}{2}}}}{24x^{1}} \\
+				&\stackrel{(*)}{=} \lim_{x \to 0} \frac{\cos(x) + \frac{3(4x^2 + 1)}{(1-x^{2})^{\frac{7}{2}}}}{24} = \frac{1 + 3}{24} = \frac{1}{6}.			
+			\end{align*}
+	
+	\item 	Wir zeigen dass $\lim_{x \to 0^{+}} \frac{1}{\frac{\cot(x)}{\log(x)}} = 0$. Daraus folgt dass $\lim_{x \to 0^{+}} \frac{\cot(x)}{\log(x)} = \infty$. Die Regel von l'Hospital für $\cot(x) \stackrel{x \to 0^{+}}{\longrightarrow} \infty$ und $\log(x)\stackrel{x \to 0^{+}}{\longrightarrow} \infty$ liefert:
+			\begin{align*}
+				\lim_{x \to 0^{+}} \frac{\log(x)}{\cot(x)} &= \lim_{x \to 0^{+}} \frac{\frac{1}{x}}{-\frac{1}{\sin^{2}(x)}}  = \lim_{x \to 0^{+}} \frac{\sin^{2}(x)}{-x} \\
+				&\stackrel{0/0}{=} \lim_{x \to 0^{+}} \frac{2\cos(x)\sin(x)}{-1} = 0.
+			\end{align*}
+	
+	\item 	Die Regel von l'Hospital für $\sinh^{2}(x)\stackrel{x \to 0}{\longrightarrow} 0$ und $ x\sin(2x) \stackrel{x \to 0}{\longrightarrow} 0$ sowie wiederholtes Anwenden der Regel liefern:
+			\begin{align*}
+				\lim_{x \to 0} \frac{x\sin(2x)}{\sinh^{2}(x)} &= \lim_{x \to 0} \frac{\sin(2x) + 2x\cos(2x)}{2\sinh(x)\cosh(x)} \\
+				&= \lim_{x \to 0} \frac{2\cos(2x) + 2 \cos(2x) + 4x\sin(2x)}{2(\sinh^{2}(x) + \cosh^{2}(x))} = \frac{2+2+0}{2(0+1)} = 2.
+			\end{align*}
+\end{enumerate}
+
+
+\end{document}
